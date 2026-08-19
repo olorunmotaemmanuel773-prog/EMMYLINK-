@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <rect width="1000" height="700" fill="#171513"/>
+
+  <g transform="translate(150, 40)">
+    <rect x="0" y="0" width="700" height="580" rx="16" fill="#24211E" stroke="#C47A44" stroke-width="2" filter="drop-shadow(0 20px 40px rgba(0,0,0,0.6))"/>
+    <rect x="20" y="20" width="660" height="540" rx="12" fill="#141210" stroke="#3D3833" stroke-width="1.5"/>
+
+    <rect x="40" y="35" width="620" height="35" rx="6" fill="#2C2925"/>
+    <text x="60" y="58" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">EMMYLINK 12U STRUCTURED DATA &amp; LOW-VOLTAGE RACK</text>
+    <text x="540" y="58" fill="#D6A85F" font-family="monospace" font-size="11">GIGABIT PoE+</text>
+
+    <!-- U1: Fiber Optic Termination -->
+    <g transform="translate(40, 85)">
+      <rect x="0" y="0" width="620" height="45" rx="4" fill="#24211E" stroke="#C47A44" stroke-width="1"/>
+      <text x="20" y="28" fill="#D6A85F" font-family="monospace" font-size="11" font-weight="bold">1U FIBER OPTIC TERMINATION (FTTH)</text>
+      <circle cx="350" cy="22" r="4" fill="#D6A85F"/>
+      <circle cx="370" cy="22" r="4" fill="#D6A85F"/>
+      <circle cx="390" cy="22" r="4" fill="#D6A85F"/>
+      <circle cx="410" cy="22" r="4" fill="#D6A85F"/>
+      <circle cx="430" cy="22" r="4" fill="#10B981"/>
+      <circle cx="450" cy="22" r="4" fill="#10B981"/>
+    </g>
+
+    <!-- U2: CAT6A Patch Panel -->
+    <g transform="translate(40, 140)">
+      <rect x="0" y="0" width="620" height="55" rx="4" fill="#24211E" stroke="#4A443D" stroke-width="1"/>
+      <text x="15" y="20" fill="#FFFFFF" font-family="monospace" font-size="9" font-weight="bold">CAT6A PATCH PANEL 24-PORT</text>
+      <g fill="#141210" stroke="#5C554B" stroke-width="1">
+        <rect x="15" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="40" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="65" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="90" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="115" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="140" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="165" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="190" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="215" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="240" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="265" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="290" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="315" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="340" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="365" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="390" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="415" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+        <rect x="440" y="26" width="20" height="18" rx="2" fill="#C47A44"/>
+      </g>
+    </g>
+
+    <!-- U3: 24-Port Managed PoE+ Switch -->
+    <g transform="translate(40, 205)">
+      <rect x="0" y="0" width="620" height="60" rx="4" fill="#1C1A18" stroke="#C47A44" stroke-width="1.5"/>
+      <text x="15" y="20" fill="#D6A85F" font-family="monospace" font-size="10" font-weight="bold">24-PORT MANAGED GIGABIT POE+ SWITCH (370W)</text>
+      <g fill="#10B981">
+        <circle cx="25" cy="35" r="3"/><circle cx="50" cy="35" r="3"/><circle cx="75" cy="35" r="3"/><circle cx="100" cy="35" r="3"/><circle cx="125" cy="35" r="3"/><circle cx="150" cy="35" r="3"/><circle cx="175" cy="35" r="3"/><circle cx="200" cy="35" r="3"/><circle cx="225" cy="35" r="3"/><circle cx="250" cy="35" r="3"/><circle cx="275" cy="35" r="3"/><circle cx="300" cy="35" r="3"/><circle cx="325" cy="35" r="3"/><circle cx="350" cy="35" r="3"/><circle cx="375" cy="35" r="3"/><circle cx="400" cy="35" r="3"/><circle cx="425" cy="35" r="3"/><circle cx="450" cy="35" r="3"/>
+      </g>
+      <text x="500" y="40" fill="#10B981" font-family="monospace" font-size="10">1000 Mbps</text>
+    </g>
+
+    <!-- U4: Cable Brush Management Tray -->
+    <g transform="translate(40, 275)">
+      <rect x="0" y="0" width="620" height="35" rx="4" fill="#24211E" stroke="#4A443D"/>
+      <line x1="20" y1="17" x2="600" y2="17" stroke="#141210" stroke-width="12" stroke-linecap="round"/>
+      <path d="M50,0 Q60,35 70,35" stroke="#C47A44" stroke-width="4" fill="none"/>
+      <path d="M120,0 Q130,35 140,35" stroke="#C47A44" stroke-width="4" fill="none"/>
+      <path d="M200,0 Q210,35 220,35" stroke="#C47A44" stroke-width="4" fill="none"/>
+      <path d="M300,0 Q310,35 320,35" stroke="#C47A44" stroke-width="4" fill="none"/>
+      <path d="M400,0 Q410,35 420,35" stroke="#C47A44" stroke-width="4" fill="none"/>
+    </g>
+
+    <!-- U5: Wi-Fi 6 Controller & Router Gateway -->
+    <g transform="translate(40, 320)">
+      <rect x="0" y="0" width="620" height="55" rx="4" fill="#2C2925" stroke="#C47A44" stroke-width="1"/>
+      <text x="15" y="25" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="12" font-weight="bold">WI-FI 6 MESH GATEWAY &amp; FIREWALL</text>
+      <text x="15" y="45" fill="#D6A85F" font-family="monospace" font-size="10">VLAN SEGREGATION: IOT • SURVEILLANCE • GUEST • PRIVATE</text>
+      <circle cx="580" cy="28" r="6" fill="#10B981"/>
+    </g>
+
+    <!-- U6: Rackmount Online UPS 1500VA -->
+    <g transform="translate(40, 390)">
+      <rect x="0" y="0" width="620" height="75" rx="4" fill="#0D0D0D" stroke="#4A443D" stroke-width="1.5"/>
+      <text x="20" y="28" fill="#FFFFFF" font-family="monospace" font-size="12" font-weight="bold">ONLINE DOUBLE-CONVERSION UPS 1500VA</text>
+      <text x="20" y="50" fill="#10B981" font-family="monospace" font-size="10">BATTERY 100% • 0ms TRANSFER TIME • CLEAN SINE WAVE</text>
+      <rect x="450" y="20" width="140" height="35" rx="4" fill="#1C1A18" stroke="#C47A44"/>
+      <text x="465" y="42" fill="#D6A85F" font-family="monospace" font-size="11" font-weight="bold">230V / 50Hz</text>
+    </g>
+
+    <!-- Bottom Rack pass-through -->
+    <g transform="translate(40, 480)">
+      <rect x="0" y="0" width="620" height="40" rx="6" fill="#141210" stroke="#2C2925"/>
+      <text x="20" y="25" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="11">STRUCTURED CABLING • ISO/IEC 11801 COMPLIANT • TESTED WITH FLUKE NETWORKS</text>
+    </g>
+  </g>
+
+  <rect x="60" y="640" width="880" height="40" rx="6" fill="#1C1A18" stroke="#C47A44" stroke-width="1"/>
+  <text x="80" y="665" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="13" font-weight="bold">STRUCTURED NETWORKING, FIBER OPTICS &amp; LOW-VOLTAGE INFRASTRUCTURE</text>
+  <text x="730" y="665" fill="#D6A85F" font-family="monospace" font-size="11">COMMISSIONED BY EMMYLINK</text>
+</svg>

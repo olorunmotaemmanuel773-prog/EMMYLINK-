@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="aboutDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#24211E"/>
+      <stop offset="100%" stop-color="#12100E"/>
+    </linearGradient>
+    <filter id="meterGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="700" fill="url(#aboutDark)"/>
+
+  <g transform="translate(80, 80)">
+    <rect x="0" y="0" width="380" height="520" rx="24" fill="#C47A44" stroke="#D6A85F" stroke-width="3" filter="drop-shadow(0 20px 40px rgba(0,0,0,0.6))"/>
+    <rect x="16" y="16" width="348" height="488" rx="18" fill="#1C1A18" stroke="#2C2925" stroke-width="2"/>
+
+    <g transform="translate(35, 40)">
+      <rect x="0" y="0" width="310" height="140" rx="8" fill="#0D0D0D" stroke="#C47A44" stroke-width="2"/>
+      <text x="20" y="45" fill="#D6A85F" font-family="monospace" font-size="14" font-weight="bold">TRUE RMS MULTIMETER</text>
+      <text x="20" y="95" fill="#FEF08A" font-family="monospace" font-size="42" font-weight="900" filter="url(#meterGlow)">231.8 <tspan font-size="24">VAC</tspan></text>
+      <text x="20" y="125" fill="#10B981" font-family="monospace" font-size="12">AUTO RANGE • 50.01 Hz • HOLD [ON]</text>
+    </g>
+
+    <g transform="translate(190, 270)">
+      <circle cx="0" cy="0" r="65" fill="#2C2925" stroke="#D6A85F" stroke-width="2"/>
+      <circle cx="0" cy="0" r="45" fill="#141210"/>
+      <rect x="-6" y="-50" width="12" height="40" rx="3" fill="#C47A44"/>
+      <text x="-8" y="-58" fill="#D6A85F" font-family="monospace" font-size="12" font-weight="bold">V~</text>
+      <text x="45" y="-20" fill="#FFFFFF" font-family="monospace" font-size="11">V=</text>
+      <text x="45" y="30" fill="#FFFFFF" font-family="monospace" font-size="11">Ω</text>
+      <text x="-12" y="60" fill="#FFFFFF" font-family="monospace" font-size="11">Hz</text>
+      <text x="-60" y="10" fill="#FFFFFF" font-family="monospace" font-size="11">A~</text>
+    </g>
+
+    <g transform="translate(50, 390)">
+      <circle cx="35" cy="35" r="16" fill="#C47A44" stroke="#D6A85F" stroke-width="2"/>
+      <text x="28" y="40" fill="#FFFFFF" font-family="monospace" font-size="11" font-weight="bold">V</text>
+
+      <circle cx="105" cy="35" r="16" fill="#0D0D0D" stroke="#4A443D" stroke-width="2"/>
+      <text x="93" y="40" fill="#D8D1C7" font-family="monospace" font-size="9" font-weight="bold">COM</text>
+
+      <circle cx="175" cy="35" r="16" fill="#C47A44" stroke="#D6A85F" stroke-width="2"/>
+      <text x="167" y="40" fill="#FFFFFF" font-family="monospace" font-size="10" font-weight="bold">mA</text>
+
+      <circle cx="245" cy="35" r="16" fill="#C47A44" stroke="#D6A85F" stroke-width="2"/>
+      <text x="236" y="40" fill="#FFFFFF" font-family="monospace" font-size="10" font-weight="bold">10A</text>
+    </g>
+    
+    <text x="75" y="480" fill="#D8D1C7" font-family="monospace" font-size="9">CAT IV 600V / CAT III 1000V SAFETY</text>
+  </g>
+
+  <!-- Right: Engineering Standards -->
+  <g transform="translate(500, 80)">
+    <rect x="0" y="0" width="440" height="520" rx="16" fill="#1C1A18" stroke="#C47A44" stroke-width="1.5"/>
+
+    <rect x="20" y="20" width="400" height="45" rx="8" fill="#24211E"/>
+    <text x="40" y="48" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="15" font-weight="bold">EMMYLINK ENGINEERING STANDARDS</text>
+
+    <!-- Point 1 -->
+    <g transform="translate(20, 85)">
+      <rect x="0" y="0" width="400" height="85" rx="8" fill="#2C2925" stroke="#C47A44" stroke-width="1"/>
+      <circle cx="35" cy="42" r="16" fill="#C47A44"/>
+      <text x="27" y="48" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="16" font-weight="bold">1</text>
+      <text x="65" y="32" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="13" font-weight="bold">Precision Wire Dressing &amp; Bootlace Ferrules</text>
+      <text x="65" y="54" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="11">Every stranded copper core is ferruled and numbered to prevent loose contacts and arcing.</text>
+    </g>
+
+    <!-- Point 2 -->
+    <g transform="translate(20, 185)">
+      <rect x="0" y="0" width="400" height="85" rx="8" fill="#2C2925" stroke="#C47A44" stroke-width="1"/>
+      <circle cx="35" cy="42" r="16" fill="#C47A44"/>
+      <text x="27" y="48" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="16" font-weight="bold">2</text>
+      <text x="65" y="32" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="13" font-weight="bold">Equal Load Balancing Across 3 Phases</text>
+      <text x="65" y="54" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="11">Rigorous calculation prevents neutral conductor overheating and reduces power bills.</text>
+    </g>
+
+    <!-- Point 3 -->
+    <g transform="translate(20, 285)">
+      <rect x="0" y="0" width="400" height="85" rx="8" fill="#2C2925" stroke="#C47A44" stroke-width="1"/>
+      <circle cx="35" cy="42" r="16" fill="#C47A44"/>
+      <text x="27" y="48" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="16" font-weight="bold">3</text>
+      <text x="65" y="32" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="13" font-weight="bold">Multi-Stage SPD &amp; Earth Bonding</text>
+      <text x="65" y="54" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="11">High-capacity surge arresters safeguard smart electronics from grid surges &amp; lightning.</text>
+    </g>
+
+    <!-- Point 4 -->
+    <g transform="translate(20, 385)">
+      <rect x="0" y="0" width="400" height="85" rx="8" fill="#141210" stroke="#10B981" stroke-width="1.5"/>
+      <circle cx="35" cy="42" r="16" fill="#064E3B"/>
+      <text x="27" y="48" fill="#34D399" font-family="'Inter', sans-serif" font-size="16" font-weight="bold">✓</text>
+      <text x="65" y="32" fill="#34D399" font-family="'Inter', sans-serif" font-size="13" font-weight="bold">Local Technical Support in Abuja FCT</text>
+      <text x="65" y="54" fill="#D1FAE5" font-family="'Inter', sans-serif" font-size="11">Direct engineer availability for installation, routine audits, and emergency support.</text>
+    </g>
+
+    <text x="40" y="495" fill="#D6A85F" font-family="monospace" font-size="11" font-weight="bold">TESTED • VERIFIED • GUARANTEED PERFORMANCE</text>
+  </g>
+
+  <!-- Bottom Details -->
+  <rect x="60" y="620" width="880" height="50" rx="8" fill="#1C1A18" stroke="#C47A44" stroke-width="1"/>
+  <text x="80" y="650" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">COMMITTED TO ELECTRICAL SAFETY &amp; ENGINEERING EXCELLENCE</text>
+  <text x="730" y="650" fill="#10B981" font-family="monospace" font-size="12">ABUJA, NIGERIA</text>
+</svg>

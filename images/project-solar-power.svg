@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="solarDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F1C1A"/>
+      <stop offset="100%" stop-color="#0D0C0B"/>
+    </linearGradient>
+    <linearGradient id="inverterChassis" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF8F3"/>
+      <stop offset="100%" stop-color="#EAE4D8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="700" fill="url(#solarDark)"/>
+
+  <!-- Left: 10kW Hybrid Inverter -->
+  <g transform="translate(60, 60)">
+    <rect x="0" y="0" width="400" height="540" rx="16" fill="url(#inverterChassis)" stroke="#C47A44" stroke-width="2" filter="drop-shadow(0 15px 30px rgba(0,0,0,0.5))"/>
+    
+    <rect x="30" y="20" width="340" height="15" rx="3" fill="#3D3833"/>
+    <line x1="40" y1="27" x2="360" y2="27" stroke="#1C1A18" stroke-width="2" stroke-dasharray="6 4"/>
+
+    <text x="40" y="70" fill="#1C1A18" font-family="'Inter', sans-serif" font-size="20" font-weight="900" letter-spacing="1.5">EMMYLINK <tspan fill="#C47A44">HYBRID 10kW</tspan></text>
+    <text x="40" y="90" fill="#625C54" font-family="monospace" font-size="10" font-weight="bold">DUAL MPPT 48V HIGH-VOLTAGE INVERTER</text>
+
+    <!-- Inverter LCD Display -->
+    <g transform="translate(40, 110)">
+      <rect x="0" y="0" width="320" height="200" rx="12" fill="#0D0D0D" stroke="#C47A44" stroke-width="1.5"/>
+      
+      <text x="20" y="35" fill="#D6A85F" font-family="monospace" font-size="14" font-weight="bold">☀️ PV SOLAR: 6.4 kW (380V)</text>
+      <text x="20" y="65" fill="#34D399" font-family="monospace" font-size="14" font-weight="bold">⚡ AC OUTPUT: 230V • 50.0Hz</text>
+      <text x="20" y="95" fill="#D6A85F" font-family="monospace" font-size="14" font-weight="bold">🔋 BATTERY: 98% (53.2V 120A)</text>
+      <text x="20" y="125" fill="#FFFFFF" font-family="monospace" font-size="14" font-weight="bold">🏠 HOME LOAD: 2.8 kW (28%)</text>
+      
+      <line x1="20" y1="155" x2="300" y2="155" stroke="#2C2925" stroke-width="1"/>
+      <text x="20" y="180" fill="#10B981" font-family="monospace" font-size="11" font-weight="bold">MODE: SOLAR + BATTERY PRIORITY [ONLINE]</text>
+    </g>
+
+    <!-- DC Disconnect -->
+    <g transform="translate(40, 335)">
+      <rect x="0" y="0" width="320" height="175" rx="10" fill="#1A1715" stroke="#C47A44" stroke-width="1.5"/>
+      <g transform="translate(25, 25)">
+        <rect x="0" y="0" width="80" height="90" rx="6" fill="#C47A44" stroke="#D6A85F" stroke-width="1"/>
+        <circle cx="40" cy="40" r="22" fill="#7A3A10"/>
+        <rect x="35" y="20" width="10" height="40" rx="2" fill="#FEF08A"/>
+        <text x="10" y="80" fill="#FFFFFF" font-family="monospace" font-size="8" font-weight="bold">DC ISOLATOR</text>
+      </g>
+      
+      <g transform="translate(130, 25)">
+        <rect x="0" y="0" width="75" height="90" rx="4" fill="#24211E" stroke="#D6A85F"/>
+        <rect x="10" y="15" width="22" height="40" fill="#10B981" rx="2"/>
+        <rect x="42" y="15" width="22" height="40" fill="#10B981" rx="2"/>
+        <text x="8" y="78" fill="#D6A85F" font-family="monospace" font-size="8">PV SPD 1000V</text>
+      </g>
+
+      <g transform="translate(225, 25)">
+        <rect x="0" y="0" width="75" height="90" rx="4" fill="#24211E" stroke="#4A443D"/>
+        <rect x="10" y="15" width="22" height="40" fill="#3D3833" rx="2"/>
+        <rect x="42" y="15" width="22" height="40" fill="#3D3833" rx="2"/>
+        <text x="12" y="78" fill="#D8D1C7" font-family="monospace" font-size="8">AC 63A MCB</text>
+      </g>
+      
+      <text x="30" y="145" fill="#D8D1C7" font-family="monospace" font-size="9">CLEAN FIREPROOF CONDUIT &amp; TRUNKING</text>
+    </g>
+  </g>
+
+  <!-- Right: LiFePO4 Rack Storage -->
+  <g transform="translate(500, 60)">
+    <rect x="0" y="0" width="440" height="540" rx="16" fill="#1C1A18" stroke="#C47A44" stroke-width="1.5"/>
+    
+    <rect x="20" y="20" width="400" height="40" rx="8" fill="#24211E"/>
+    <text x="35" y="46" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">15kWh LIFEPO4 LITHIUM STORAGE MATRIX</text>
+
+    <!-- Module 1 -->
+    <g transform="translate(20, 75)">
+      <rect x="0" y="0" width="400" height="125" rx="8" fill="#2C2925" stroke="#C47A44" stroke-width="1"/>
+      <rect x="10" y="40" width="12" height="45" rx="3" fill="#5C554B"/>
+      <rect x="378" y="40" width="12" height="45" rx="3" fill="#5C554B"/>
+      <text x="35" y="35" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="12" font-weight="bold">MODULE 01: 51.2V 100Ah (5.12kWh)</text>
+      <rect x="35" y="50" width="200" height="12" rx="6" fill="#141210"/>
+      <rect x="35" y="50" width="195" height="12" rx="6" fill="#10B981"/>
+      <text x="245" y="61" fill="#10B981" font-family="monospace" font-size="11" font-weight="bold">100% SOC</text>
+      <text x="35" y="90" fill="#D8D1C7" font-family="monospace" font-size="10">BMS STATUS: BALANCED • 6,000+ CYCLES</text>
+      <circle cx="350" cy="90" r="6" fill="#10B981"/>
+    </g>
+
+    <!-- Module 2 -->
+    <g transform="translate(20, 215)">
+      <rect x="0" y="0" width="400" height="125" rx="8" fill="#2C2925" stroke="#C47A44" stroke-width="1"/>
+      <rect x="10" y="40" width="12" height="45" rx="3" fill="#5C554B"/>
+      <rect x="378" y="40" width="12" height="45" rx="3" fill="#5C554B"/>
+      <text x="35" y="35" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="12" font-weight="bold">MODULE 02: 51.2V 100Ah (5.12kWh)</text>
+      <rect x="35" y="50" width="200" height="12" rx="6" fill="#141210"/>
+      <rect x="35" y="50" width="190" height="12" rx="6" fill="#10B981"/>
+      <text x="245" y="61" fill="#10B981" font-family="monospace" font-size="11" font-weight="bold">97% SOC</text>
+      <text x="35" y="90" fill="#D8D1C7" font-family="monospace" font-size="10">BMS STATUS: BALANCED • ACTIVE EQUALIZATION</text>
+      <circle cx="350" cy="90" r="6" fill="#10B981"/>
+    </g>
+
+    <!-- Module 3 -->
+    <g transform="translate(20, 355)">
+      <rect x="0" y="0" width="400" height="125" rx="8" fill="#2C2925" stroke="#C47A44" stroke-width="1"/>
+      <rect x="10" y="40" width="12" height="45" rx="3" fill="#5C554B"/>
+      <rect x="378" y="40" width="12" height="45" rx="3" fill="#5C554B"/>
+      <text x="35" y="35" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="12" font-weight="bold">MODULE 03: 51.2V 100Ah (5.12kWh)</text>
+      <rect x="35" y="50" width="200" height="12" rx="6" fill="#141210"/>
+      <rect x="35" y="50" width="192" height="12" rx="6" fill="#10B981"/>
+      <text x="245" y="61" fill="#10B981" font-family="monospace" font-size="11" font-weight="bold">98% SOC</text>
+      <text x="35" y="90" fill="#D8D1C7" font-family="monospace" font-size="10">BMS STATUS: BALANCED • CANBUS PROTOCOL</text>
+      <circle cx="350" cy="90" r="6" fill="#10B981"/>
+    </g>
+
+    <text x="35" y="515" fill="#10B981" font-family="monospace" font-size="11" font-weight="bold">ZERO NOISE • ZERO DOWNTIME • ZERO FUEL COST</text>
+  </g>
+
+  <!-- Bottom Details -->
+  <rect x="60" y="620" width="880" height="50" rx="8" fill="#1C1A18" stroke="#C47A44" stroke-width="1"/>
+  <text x="80" y="650" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">SOLAR HYBRID INVERTER &amp; LITHIUM STORAGE INSTALLATION</text>
+  <text x="730" y="650" fill="#D6A85F" font-family="monospace" font-size="12">24/7 CONSTANT POWER</text>
+</svg>

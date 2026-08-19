@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cctvDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F1C1A"/>
+      <stop offset="100%" stop-color="#0D0C0B"/>
+    </linearGradient>
+    <radialGradient id="lensReflect" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#D6A85F" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#C47A44" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#171717" stop-opacity="1"/>
+    </radialGradient>
+    <filter id="redRecGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="700" fill="url(#cctvDark)"/>
+
+  <!-- Left: IP Dome Camera -->
+  <g transform="translate(60, 80)">
+    <rect x="0" y="0" width="380" height="520" rx="16" fill="#1C1A18" stroke="#C47A44" stroke-width="1.5"/>
+    <rect x="130" y="40" width="120" height="40" rx="8" fill="#2C2925" stroke="#4A443D" stroke-width="1.5"/>
+    <rect x="165" y="80" width="50" height="35" fill="#24211E"/>
+
+    <circle cx="190" cy="220" r="105" fill="#24211E" stroke="#C47A44" stroke-width="2"/>
+    <circle cx="190" cy="220" r="85" fill="#141210" stroke="#D6A85F" stroke-width="1.5"/>
+
+    <g fill="#EF4444" opacity="0.85">
+      <circle cx="145" cy="175" r="4" filter="url(#redRecGlow)"/>
+      <circle cx="190" cy="155" r="4" filter="url(#redRecGlow)"/>
+      <circle cx="235" cy="175" r="4" filter="url(#redRecGlow)"/>
+      <circle cx="255" cy="220" r="4" filter="url(#redRecGlow)"/>
+      <circle cx="235" cy="265" r="4" filter="url(#redRecGlow)"/>
+      <circle cx="190" cy="285" r="4" filter="url(#redRecGlow)"/>
+      <circle cx="145" cy="265" r="4" filter="url(#redRecGlow)"/>
+      <circle cx="125" cy="220" r="4" filter="url(#redRecGlow)"/>
+    </g>
+
+    <circle cx="190" cy="220" r="52" fill="url(#lensReflect)" stroke="#D6A85F" stroke-width="1.5"/>
+    <circle cx="175" cy="205" r="14" fill="#FFFFFF" opacity="0.4"/>
+
+    <!-- Camera Specs Badge -->
+    <rect x="30" y="370" width="320" height="120" rx="10" fill="#141210" stroke="#2C2925"/>
+    <text x="50" y="400" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">EMMYLINK 4K ULTRA-HD POE IP</text>
+    <text x="50" y="422" fill="#10B981" font-family="monospace" font-size="11">● LIVE STREAMING (3840 x 2160)</text>
+    <text x="50" y="442" fill="#D6A85F" font-family="monospace" font-size="11">● AI HUMAN / VEHICLE DETECTION</text>
+    <text x="50" y="462" fill="#D8D1C7" font-family="monospace" font-size="11">● COLOR-NIGHT-VISION • IP67 WEATHER</text>
+  </g>
+
+  <!-- Right: 4-Channel Live Security Monitoring Wall -->
+  <g transform="translate(480, 80)">
+    <rect x="0" y="0" width="460" height="520" rx="16" fill="#1A1715" stroke="#C47A44" stroke-width="1.5"/>
+    
+    <rect x="16" y="16" width="428" height="36" rx="6" fill="#24211E"/>
+    <circle cx="35" cy="34" r="5" fill="#EF4444" filter="url(#redRecGlow)"/>
+    <text x="48" y="38" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="12" font-weight="bold">SURVEILLANCE MATRIX — LIVE RECORDING</text>
+    <text x="360" y="38" fill="#EF4444" font-family="monospace" font-size="11" font-weight="bold">REC [●]</text>
+
+    <!-- Grid of 4 Cameras -->
+    <g transform="translate(16, 62)">
+      <rect x="0" y="0" width="208" height="150" rx="6" fill="#0D0D0D" stroke="#3D3833"/>
+      <polygon points="0,110 208,80 208,150 0,150" fill="#1C1A18"/>
+      <polygon points="40,110 80,70 120,70 160,110" fill="#2C2925" stroke="#4A443D"/>
+      <text x="10" y="20" fill="#D6A85F" font-family="monospace" font-size="9">CAM 01: MAIN GATE</text>
+      <text x="10" y="140" fill="#10B981" font-family="monospace" font-size="8">AI DETECT: VEHICLE [OK]</text>
+      <rect x="60" y="75" width="80" height="45" fill="none" stroke="#10B981" stroke-width="1.5" stroke-dasharray="3 3"/>
+    </g>
+
+    <g transform="translate(236, 62)">
+      <rect x="0" y="0" width="208" height="150" rx="6" fill="#0D0D0D" stroke="#3D3833"/>
+      <line x1="0" y1="100" x2="208" y2="100" stroke="#4A443D" stroke-width="2"/>
+      <line x1="40" y1="60" x2="40" y2="140" stroke="#3D3833" stroke-width="2"/>
+      <line x1="100" y1="60" x2="100" y2="140" stroke="#3D3833" stroke-width="2"/>
+      <line x1="160" y1="60" x2="160" y2="140" stroke="#3D3833" stroke-width="2"/>
+      <text x="10" y="20" fill="#D6A85F" font-family="monospace" font-size="9">CAM 02: PERIMETER NORTH</text>
+      <text x="10" y="140" fill="#10B981" font-family="monospace" font-size="8">INFRARED BEAM: SECURE</text>
+    </g>
+
+    <g transform="translate(16, 222)">
+      <rect x="0" y="0" width="208" height="150" rx="6" fill="#0D0D0D" stroke="#3D3833"/>
+      <rect x="40" y="50" width="120" height="70" rx="4" fill="#24211E" stroke="#C47A44"/>
+      <text x="10" y="20" fill="#D6A85F" font-family="monospace" font-size="9">CAM 03: POWER BAY</text>
+      <text x="10" y="140" fill="#D6A85F" font-family="monospace" font-size="8">THERMAL SENSOR: NORMAL</text>
+    </g>
+
+    <g transform="translate(236, 222)">
+      <rect x="0" y="0" width="208" height="150" rx="6" fill="#0D0D0D" stroke="#3D3833"/>
+      <rect x="60" y="40" width="90" height="95" fill="#24211E" stroke="#4A443D"/>
+      <text x="10" y="20" fill="#D6A85F" font-family="monospace" font-size="9">CAM 04: FRONT ENTRY</text>
+      <text x="10" y="140" fill="#10B981" font-family="monospace" font-size="8">FACIAL MATCH: ACCESS GRANTED</text>
+    </g>
+
+    <!-- NVR Telemetry Bar -->
+    <g transform="translate(16, 385)">
+      <rect x="0" y="0" width="428" height="115" rx="8" fill="#141210" stroke="#2C2925"/>
+      <text x="16" y="26" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="12" font-weight="bold">EMMYLINK 16-CHANNEL 4K NVR</text>
+      <text x="16" y="50" fill="#D8D1C7" font-family="monospace" font-size="10">STORAGE: 8TB WD PURPLE (14 DAYS ARCHIVE)</text>
+      <text x="16" y="70" fill="#10B981" font-family="monospace" font-size="10">NETWORK: GIGABIT POE SWITCH • MOBILE APP CLOUD ONLINE</text>
+      <text x="16" y="92" fill="#D6A85F" font-family="monospace" font-size="10">INSTALLED &amp; CONFIGURED IN ABUJA FCT</text>
+    </g>
+  </g>
+
+  <!-- Bottom Details Strip -->
+  <rect x="60" y="620" width="880" height="50" rx="8" fill="#1C1A18" stroke="#C47A44" stroke-width="1"/>
+  <text x="80" y="650" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">HIGH-DEFINITION CCTV SURVEILLANCE &amp; INTRUSION ALARMS</text>
+  <text x="730" y="650" fill="#10B981" font-family="monospace" font-size="12">24/7 REMOTE MONITORING</text>
+</svg>
