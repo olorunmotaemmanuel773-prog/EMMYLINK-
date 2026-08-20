@@ -30,7 +30,7 @@ This project is built as a zero-dependency, pure static web application configur
 ├── js/
 │   └── app.js                # Dynamic interactions (Lightbox, filter, calculator, WhatsApp dispatch)
 ├── images/                   # High-resolution project photographs and official brand assets
-│   ├── emmylink-emblem.png   # Official brand emblem logo
+│   ├── emmylink-emblem.png   # New official brand emblem logo
 │   ├── video-poster.jpg      # Video preview poster
 │   └── real-*.jpg            # Real completed Abuja installation photos
 ├── videos/

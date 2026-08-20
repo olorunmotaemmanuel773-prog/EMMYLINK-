@@ -14,7 +14,10 @@
   --bg-soft-cream: #FAF8F3;     /* Light Cards, Modals */
   --bg-card-dark: #2C2925;      /* Dark section card background */
   --bg-card-dark-hover: #38342F;
-  --bg-header: #1C1917;         /* Sticky Header Warm Charcoal / Graphite */
+  --bg-header: #25211E;         /* Refined Warm Charcoal / Graphite with Warm Bronze Undertone */
+  --header-bg: #25211E;
+  --header-bg-scrolled: rgba(30, 26, 23, 0.97);
+  --header-border: 1px solid rgba(214, 168, 95, 0.25);
   
   /* 2. Luxury Accents */
   --accent-copper: #C9823D;         /* Primary Accent: Warm Copper */
@@ -66,7 +69,8 @@
   
   /* Layout */
   --container-max: 1240px;
-  --header-height: 86px;
+  --header-height: 78px;
+  --header-height-mobile: 72px;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
@@ -236,7 +240,7 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   TOP HEADER / NAVIGATION (WARM CHARCOAL / GRAPHITE #1C1917)
+   TOP HEADER / NAVIGATION (WARM CHARCOAL GRAPHITE WITH BRONZE UNDERTONE)
    ========================================================================== */
 .site-header {
   position: sticky;
@@ -245,17 +249,20 @@ button, input, select, textarea {
   width: 100%;
   height: var(--header-height);
   background-color: var(--header-bg);
-  border-bottom: 2px solid var(--copper-border);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(180deg, #26221E 0%, #201D1A 100%);
+  border-bottom: var(--header-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   z-index: 1000;
-  transition: all var(--transition-normal);
+  transition: height 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .site-header.scrolled {
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.65);
-  height: 76px;
-  background-color: #141210;
-  border-bottom-color: var(--accent-copper);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  height: 72px;
+  background: rgba(30, 26, 23, 0.97);
+  border-bottom: 1px solid rgba(214, 168, 95, 0.32);
 }
 
 .nav-container {
@@ -269,19 +276,42 @@ button, input, select, textarea {
 .brand-logo-link {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 13px;
   height: 100%;
   text-decoration: none;
   flex-shrink: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.brand-logo-link:hover {
+  opacity: 0.95;
 }
 
 .brand-logo-emblem {
-  height: 56px;
-  max-height: 60px;
+  height: 52px;
+  max-height: 54px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
   flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo-link:hover .brand-logo-emblem {
+  transform: scale(1.02);
+}
+
+.mobile-drawer-header {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--copper-border);
+}
+
+.mobile-drawer-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
 }
 
 .brand-name-group {
@@ -291,24 +321,25 @@ button, input, select, textarea {
 }
 
 .brand-name-text {
-  font-size: 1.5rem;
+  font-size: 1.42rem;
   font-weight: 900;
   letter-spacing: 0.05em;
-  color: #FFFFFF;
+  color: #FAF7F2;
   line-height: 1.05;
 }
 
 .brand-name-accent {
-  color: var(--accent-copper);
+  color: #D8A25E;
 }
 
 .brand-sub-text {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
-  color: var(--accent-gold);
+  letter-spacing: 0.15em;
+  color: #D4B07B;
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 3px;
+  line-height: 1.1;
 }
 
 /* Desktop Navigation Links */
@@ -383,18 +414,26 @@ button, input, select, textarea {
 /* Mobile Hamburger Toggle */
 .mobile-menu-btn {
   display: none;
-  background: #29231F;
-  border: 1.5px solid var(--accent-copper);
+  background: #2C2723;
+  border: 1px solid rgba(214, 168, 95, 0.42);
   border-radius: 8px;
-  color: #FFFFFF;
+  color: #FAF7F2;
   cursor: pointer;
-  padding: 10px 12px;
+  padding: 9px 11px;
   z-index: 1002;
-  min-width: 44px;
-  min-height: 44px;
+  min-width: 42px;
+  min-height: 42px;
+  width: 42px;
+  height: 42px;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.mobile-menu-btn:hover {
+  background: #342E29;
+  border-color: rgba(214, 168, 95, 0.65);
 }
 
 .hamburger-icon {
@@ -527,7 +566,7 @@ button, input, select, textarea {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(0.72) contrast(1.15);
+  filter: brightness(1.02) contrast(1.04);
 }
 
 .hero-bg-img {
@@ -535,7 +574,7 @@ button, input, select, textarea {
   height: 100%;
   object-fit: cover;
   object-position: center right;
-  filter: brightness(0.72) contrast(1.15);
+  filter: brightness(1.02) contrast(1.04);
 }
 
 .hero-overlay {
@@ -545,8 +584,8 @@ button, input, select, textarea {
   width: 100%;
   height: 100%;
   background: 
-    linear-gradient(180deg, rgba(23, 23, 23, 0.85) 0%, rgba(23, 23, 23, 0.45) 45%, rgba(23, 23, 23, 0.92) 100%),
-    linear-gradient(90deg, rgba(23, 23, 23, 0.92) 0%, rgba(36, 33, 30, 0.65) 45%, rgba(23, 23, 23, 0.25) 100%);
+    linear-gradient(180deg, rgba(23, 23, 23, 0.48) 0%, rgba(23, 23, 23, 0.18) 45%, rgba(23, 23, 23, 0.75) 100%),
+    linear-gradient(90deg, rgba(23, 23, 23, 0.65) 0%, rgba(36, 33, 30, 0.25) 55%, transparent 100%);
   z-index: 2;
 }
 
@@ -563,6 +602,7 @@ button, input, select, textarea {
   letter-spacing: -0.025em;
   color: var(--text-dark-primary);
   margin-bottom: 22px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 0, 0, 0.6);
   text-transform: uppercase;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
 }
@@ -1107,7 +1147,7 @@ button, input, select, textarea {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, rgba(23, 23, 23, 0.95) 0%, rgba(23, 23, 23, 0.45) 45%, rgba(23, 23, 23, 0.05) 100%);
+  background: linear-gradient(0deg, rgba(23, 23, 23, 0.88) 0%, rgba(23, 23, 23, 0.36) 28%, rgba(23, 23, 23, 0.03) 55%, transparent 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -2015,21 +2055,22 @@ button, input, select, textarea {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   :root {
-    --header-height: 86px;
+    --header-height: 72px;
   }
   
   .site-header {
-    height: 86px;
-    background-color: var(--header-bg);
+    height: 72px;
+    background: #25211E;
+    border-bottom: 1px solid rgba(214, 168, 95, 0.25);
   }
   
   .nav-desktop {
     display: none;
   }
   
-  /* CRITICAL: Remove "GET A FREE QUOTE" button from mobile top header */
+  /* Remove quote button from mobile top header */
   .btn-header-cta {
     display: none !important;
   }
@@ -2048,26 +2089,32 @@ button, input, select, textarea {
     width: 100%;
   }
   
-  /* Bold, straight, recognizable logo on mobile */
   .brand-logo-link {
     display: flex;
     align-items: center;
-    gap: 12px;
-    max-width: calc(100% - 60px);
+    gap: 10px;
+    max-width: calc(100% - 56px);
   }
   
   .brand-logo-emblem {
-    height: 52px;
-    max-height: 56px;
+    height: 44px;
+    max-height: 46px;
+    width: auto;
+    object-fit: contain;
   }
   
   .brand-name-text {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #FAF7F2;
+    line-height: 1.05;
   }
   
   .brand-sub-text {
-    font-size: 0.62rem;
+    font-size: 0.58rem;
+    font-weight: 800;
     letter-spacing: 0.12em;
+    color: #D4B07B;
   }
   
   .hero-section {
@@ -2212,10 +2259,11 @@ button, input, select, textarea {
 
 .intro-logo-emblem {
   position: relative;
-  width: 96px;
-  height: 96px;
+  width: auto;
+  height: 110px;
+  max-width: 140px;
   object-fit: contain;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.75));
+  filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.85));
 }
 
 .intro-brand-group {
