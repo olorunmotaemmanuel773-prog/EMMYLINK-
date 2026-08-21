@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="trackBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F1C1A"/>
+      <stop offset="100%" stop-color="#0D0D0D"/>
+    </linearGradient>
+    <linearGradient id="warmBeam" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB" stop-opacity="0.85"/>
+      <stop offset="20%" stop-color="#FEF08A" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FDE047" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="trackGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="700" fill="url(#trackBg)"/>
+  <polygon points="0,0 1000,0 1000,160 0,160" fill="#1C1A18" stroke="#C47A44" stroke-width="1" stroke-opacity="0.5"/>
+
+  <g transform="translate(50, 140)">
+    <rect x="0" y="0" width="900" height="20" rx="2" fill="#0D0D0D" stroke="#C47A44" stroke-width="1.5"/>
+    <line x1="10" y1="10" x2="890" y2="10" stroke="#D6A85F" stroke-width="2" opacity="0.7"/>
+
+    <!-- Module 1 -->
+    <rect x="60" y="15" width="220" height="14" rx="3" fill="#FEF08A" filter="url(#trackGlow)"/>
+    <polygon points="60,28 280,28 360,520 0,520" fill="url(#warmBeam)" opacity="0.4"/>
+
+    <!-- Module 2: Twin Spotlights -->
+    <g transform="translate(340, 18)">
+      <rect x="0" y="0" width="30" height="35" rx="4" fill="#24211E" stroke="#D6A85F"/>
+      <ellipse cx="15" cy="35" rx="15" ry="4" fill="#FEF08A" filter="url(#trackGlow)"/>
+      <polygon points="0,35 30,35 120,530 -60,530" fill="url(#warmBeam)" opacity="0.55"/>
+
+      <rect x="50" y="0" width="30" height="35" rx="4" fill="#24211E" stroke="#D6A85F"/>
+      <ellipse cx="65" cy="35" rx="15" ry="4" fill="#FEF08A" filter="url(#trackGlow)"/>
+      <polygon points="50,35 80,35 220,530 0,530" fill="url(#warmBeam)" opacity="0.55"/>
+    </g>
+
+    <!-- Module 3: Grille Louver -->
+    <g transform="translate(480, 18)">
+      <rect x="0" y="0" width="150" height="14" rx="2" fill="#141210" stroke="#3D3833"/>
+      <rect x="10" y="4" width="130" height="6" fill="#FEF08A" filter="url(#trackGlow)"/>
+      <polygon points="10,14 140,14 200,500 0,500" fill="url(#warmBeam)" opacity="0.35"/>
+    </g>
+
+    <!-- Module 4: Foldable Accent Spotlight -->
+    <g transform="translate(690, 18)">
+      <rect x="0" y="0" width="32" height="40" rx="4" fill="#24211E" stroke="#C47A44" stroke-width="1.5"/>
+      <polygon points="0,40 32,40 160,520 -30,520" fill="url(#warmBeam)" opacity="0.45"/>
+    </g>
+  </g>
+
+  <!-- Technical Spec Callout Box -->
+  <g transform="translate(550, 360)">
+    <rect x="0" y="0" width="400" height="220" rx="12" fill="#141210" stroke="#C47A44" stroke-width="1.5" filter="drop-shadow(0 15px 30px rgba(0,0,0,0.7))"/>
+    <text x="24" y="35" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">ARCHITECTURAL LIGHTING DESIGN</text>
+    <text x="24" y="65" fill="#D6A85F" font-family="monospace" font-size="11">● 48V SAFE LOW-VOLTAGE MAGNETIC RAIL</text>
+    <text x="24" y="90" fill="#C47A44" font-family="monospace" font-size="11">● HIGH CRI &gt; 95 (TRUE COLOR RENDERING)</text>
+    <text x="24" y="115" fill="#10B981" font-family="monospace" font-size="11">● DALI-2 &amp; 0-10V FLICKER-FREE DIMMING</text>
+    <text x="24" y="140" fill="#FFFFFF" font-family="monospace" font-size="11">● SEAMLESS FLUSH-MOUNT IN GYPSUM CEILING</text>
+    <text x="24" y="180" fill="#D8D1C7" font-family="monospace" font-size="10">DESIGNED &amp; INSTALLED FOR ABUJA LUXURY HOMES</text>
+  </g>
+
+  <!-- Bottom Details -->
+  <rect x="50" y="620" width="900" height="50" rx="8" fill="#1C1A18" stroke="#C47A44" stroke-width="1"/>
+  <text x="80" y="650" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">MAGNETIC TRACK &amp; ARCHITECTURAL CEILING LIGHTING</text>
+  <text x="730" y="650" fill="#D6A85F" font-family="monospace" font-size="12">3000K WARM LUXURY</text>
+</svg>

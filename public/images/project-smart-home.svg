@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="roomGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#24211E"/>
+      <stop offset="50%" stop-color="#171717"/>
+      <stop offset="100%" stop-color="#0D0D0D"/>
+    </linearGradient>
+    <radialGradient id="coveGlow" cx="50%" cy="10%" r="80%">
+      <stop offset="0%" stop-color="#D6A85F" stop-opacity="0.35"/>
+      <stop offset="40%" stop-color="#C47A44" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="warmSpot" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FEF08A" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="screenGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="700" fill="url(#roomGrad)"/>
+  <rect width="1000" height="700" fill="url(#coveGlow)"/>
+
+  <polygon points="0,0 1000,0 920,90 80,90" fill="#1C1A18" stroke="#C47A44" stroke-width="1" stroke-opacity="0.5"/>
+  <line x1="80" y1="90" x2="920" y2="90" stroke="#D6A85F" stroke-width="3" filter="url(#screenGlow)"/>
+
+  <!-- 4 Recessed Ceiling Downlights -->
+  <g>
+    <ellipse cx="200" cy="50" rx="24" ry="8" fill="#0D0D0D" stroke="#C47A44"/>
+    <polygon points="180,55 220,55 320,400 80,400" fill="url(#warmSpot)"/>
+    
+    <ellipse cx="400" cy="50" rx="24" ry="8" fill="#0D0D0D" stroke="#C47A44"/>
+    <polygon points="380,55 420,55 520,400 280,400" fill="url(#warmSpot)"/>
+
+    <ellipse cx="600" cy="50" rx="24" ry="8" fill="#0D0D0D" stroke="#C47A44"/>
+    <polygon points="580,55 620,55 720,400 480,400" fill="url(#warmSpot)"/>
+
+    <ellipse cx="800" cy="50" rx="24" ry="8" fill="#0D0D0D" stroke="#C47A44"/>
+    <polygon points="780,55 820,55 920,400 680,400" fill="url(#warmSpot)"/>
+  </g>
+
+  <!-- Central Smart Wall Panel -->
+  <g transform="translate(250, 160)">
+    <rect x="0" y="0" width="500" height="350" rx="24" fill="#0D0D0D" stroke="#C47A44" stroke-width="2.5" filter="drop-shadow(0 20px 40px rgba(196,122,68,0.25))"/>
+    <rect x="12" y="12" width="476" height="326" rx="16" fill="#1A1715"/>
+
+    <!-- Header bar -->
+    <rect x="24" y="24" width="452" height="44" rx="8" fill="#24211E"/>
+    <circle cx="46" cy="46" r="6" fill="#C47A44"/>
+    <text x="62" y="51" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">EMMYLINK SMART CONTROL</text>
+    <text x="380" y="50" fill="#D6A85F" font-family="monospace" font-size="12">18:42 • 23°C</text>
+
+    <!-- Zone Cards -->
+    <g transform="translate(24, 85)">
+      <rect x="0" y="0" width="138" height="130" rx="10" fill="#24211E" stroke="#C47A44" stroke-width="1.5"/>
+      <text x="14" y="28" fill="#D6A85F" font-family="'Inter', sans-serif" font-size="12" font-weight="bold">💡 LIGHTING</text>
+      <text x="14" y="52" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="16" font-weight="bold">85%</text>
+      <text x="14" y="72" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="10">Warm 3000K</text>
+      <rect x="14" y="90" width="110" height="8" rx="4" fill="#141210"/>
+      <rect x="14" y="90" width="93" height="8" rx="4" fill="#C47A44"/>
+    </g>
+
+    <g transform="translate(180, 85)">
+      <rect x="0" y="0" width="138" height="130" rx="10" fill="#24211E" stroke="#4A443D" stroke-width="1"/>
+      <text x="14" y="28" fill="#D6A85F" font-family="'Inter', sans-serif" font-size="12" font-weight="bold">🪟 SHADES</text>
+      <text x="14" y="52" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="16" font-weight="bold">OPEN</text>
+      <text x="14" y="72" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="10">Dual Motor Sync</text>
+      <rect x="14" y="90" width="110" height="8" rx="4" fill="#141210"/>
+      <rect x="14" y="90" width="110" height="8" rx="4" fill="#D6A85F"/>
+    </g>
+
+    <g transform="translate(338, 85)">
+      <rect x="0" y="0" width="138" height="130" rx="10" fill="#24211E" stroke="#4A443D" stroke-width="1"/>
+      <text x="14" y="28" fill="#10B981" font-family="'Inter', sans-serif" font-size="12" font-weight="bold">❄️ CLIMATE</text>
+      <text x="14" y="52" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="16" font-weight="bold">22.5°C</text>
+      <text x="14" y="72" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="10">Eco Mode Auto</text>
+      <rect x="14" y="90" width="110" height="8" rx="4" fill="#141210"/>
+      <rect x="14" y="90" width="75" height="8" rx="4" fill="#10B981"/>
+    </g>
+
+    <!-- Preset Scenes -->
+    <g transform="translate(24, 235)">
+      <rect x="0" y="0" width="105" height="40" rx="8" fill="#C47A44"/>
+      <text x="18" y="25" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="11" font-weight="700">✨ Welcome</text>
+
+      <rect x="115" y="0" width="105" height="40" rx="8" fill="#24211E" stroke="#3D3833"/>
+      <text x="133" y="25" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="11">🎬 Cinema</text>
+
+      <rect x="230" y="0" width="105" height="40" rx="8" fill="#24211E" stroke="#3D3833"/>
+      <text x="246" y="25" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="11">🌙 Sleep</text>
+
+      <rect x="345" y="0" width="105" height="40" rx="8" fill="#24211E" stroke="#3D3833"/>
+      <text x="365" y="25" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="11">🔒 Away</text>
+    </g>
+    
+    <text x="24" y="305" fill="#D6A85F" font-family="monospace" font-size="10">MESH: ZIGBEE 3.0 • MATTER COMPLIANT • APPLE HOMEKIT / ALEXA SYNC</text>
+  </g>
+
+  <!-- Left: Luxury Capacitive Glass Switches -->
+  <g transform="translate(60, 220)">
+    <rect x="0" y="0" width="130" height="220" rx="12" fill="#1A1715" stroke="#C47A44" stroke-width="1.5"/>
+    <circle cx="65" cy="50" r="16" fill="#0D0D0D" stroke="#C47A44" stroke-width="2" filter="url(#screenGlow)"/>
+    <circle cx="65" cy="110" r="16" fill="#0D0D0D" stroke="#D6A85F" stroke-width="2"/>
+    <circle cx="65" cy="170" r="16" fill="#0D0D0D" stroke="#4A443D" stroke-width="2"/>
+    <text x="18" y="210" fill="#D8D1C7" font-family="monospace" font-size="8">CAPACITIVE GLASS</text>
+  </g>
+
+  <!-- Bottom Accent Banner -->
+  <rect x="50" y="580" width="900" height="70" rx="10" fill="#1A1715" stroke="#C47A44" stroke-width="1"/>
+  <text x="80" y="620" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="16" font-weight="bold">SMART HOME AUTOMATION &amp; INTELLIGENT LIGHTING</text>
+  <text x="680" y="620" fill="#D6A85F" font-family="monospace" font-size="13">Abuja Luxury Residence</text>
+</svg>

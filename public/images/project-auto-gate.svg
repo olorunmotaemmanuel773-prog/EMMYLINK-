@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#24211E"/>
+      <stop offset="100%" stop-color="#12100E"/>
+    </linearGradient>
+    <linearGradient id="steelRack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D8D1C7"/>
+      <stop offset="50%" stop-color="#8C8478"/>
+      <stop offset="100%" stop-color="#332E27"/>
+    </linearGradient>
+    <filter id="amberGlow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="700" fill="url(#gateGrad)"/>
+
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="520" height="550" rx="12" fill="#1C1A18" stroke="#C47A44" stroke-width="1.5"/>
+    <rect x="20" y="30" width="60" height="490" fill="#2C2925" stroke="#4A443D" stroke-width="1.5"/>
+    <rect x="440" y="30" width="60" height="490" fill="#2C2925" stroke="#4A443D" stroke-width="1.5"/>
+
+    <g fill="#141210" stroke="#C47A44" stroke-width="1.5">
+      <rect x="80" y="60" width="360" height="430" rx="6" fill="#0D0D0D" stroke="#C47A44" stroke-width="1.5"/>
+      <line x1="90" y1="100" x2="430" y2="100" stroke="#4A443D" stroke-width="8" stroke-linecap="round"/>
+      <line x1="90" y1="140" x2="430" y2="140" stroke="#4A443D" stroke-width="8" stroke-linecap="round"/>
+      <line x1="90" y1="180" x2="430" y2="180" stroke="#4A443D" stroke-width="8" stroke-linecap="round"/>
+      <line x1="90" y1="220" x2="430" y2="220" stroke="#4A443D" stroke-width="8" stroke-linecap="round"/>
+      <line x1="90" y1="260" x2="430" y2="260" stroke="#4A443D" stroke-width="8" stroke-linecap="round"/>
+      <line x1="90" y1="300" x2="430" y2="300" stroke="#4A443D" stroke-width="8" stroke-linecap="round"/>
+      <line x1="90" y1="340" x2="430" y2="340" stroke="#4A443D" stroke-width="8" stroke-linecap="round"/>
+      <line x1="90" y1="380" x2="430" y2="380" stroke="#4A443D" stroke-width="8" stroke-linecap="round"/>
+      <line x1="90" y1="420" x2="430" y2="420" stroke="#4A443D" stroke-width="8" stroke-linecap="round"/>
+      <line x1="90" y1="460" x2="430" y2="460" stroke="#4A443D" stroke-width="8" stroke-linecap="round"/>
+    </g>
+
+    <rect x="80" y="465" width="360" height="12" fill="url(#steelRack)" stroke="#D8D1C7" stroke-width="1"/>
+
+    <g transform="translate(85, 390)">
+      <rect x="0" y="0" width="95" height="105" rx="8" fill="#2C2925" stroke="#C47A44" stroke-width="2"/>
+      <rect x="15" y="15" width="65" height="40" rx="4" fill="#141210"/>
+      <circle cx="47" cy="35" r="8" fill="#D6A85F" filter="url(#amberGlow)"/>
+      <text x="16" y="75" fill="#FFFFFF" font-family="monospace" font-size="8" font-weight="bold">EMMYLINK MTR</text>
+      <text x="22" y="90" fill="#10B981" font-family="monospace" font-size="7">1000KG TORQUE</text>
+      <circle cx="47" cy="105" r="14" fill="#5C554B" stroke="#D8D1C7" stroke-width="2"/>
+    </g>
+
+    <rect x="25" y="380" width="16" height="35" rx="4" fill="#EF4444" stroke="#F87171" stroke-width="1"/>
+    <rect x="475" y="380" width="16" height="35" rx="4" fill="#EF4444" stroke="#F87171" stroke-width="1"/>
+    <line x1="41" y1="397" x2="475" y2="397" stroke="#EF4444" stroke-width="2" stroke-dasharray="4 4" opacity="0.7"/>
+
+    <ellipse cx="50" cy="20" rx="16" ry="10" fill="#D6A85F" filter="url(#amberGlow)"/>
+  </g>
+
+  <!-- Right: Biometric Keypad & Video Intercom -->
+  <g transform="translate(600, 60)">
+    <rect x="0" y="0" width="350" height="550" rx="16" fill="#1C1A18" stroke="#D6A85F" stroke-width="1.5"/>
+
+    <rect x="35" y="30" width="280" height="160" rx="12" fill="#0D0D0D" stroke="#C47A44" stroke-width="1.5"/>
+    <circle cx="175" cy="60" r="12" fill="#24211E" stroke="#D6A85F" stroke-width="2"/>
+    <circle cx="175" cy="60" r="4" fill="#D6A85F"/>
+    <text x="90" y="110" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">VIDEO INTERCOM HD</text>
+    <text x="80" y="135" fill="#10B981" font-family="monospace" font-size="11">TOUCH TO CALL RESIDENCE</text>
+    <rect x="80" y="145" width="190" height="30" rx="6" fill="#C47A44"/>
+    <text x="130" y="165" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="12" font-weight="600">🔔 RING CALL</text>
+
+    <!-- Keypad -->
+    <g transform="translate(35, 210)">
+      <rect x="0" y="0" width="280" height="310" rx="12" fill="#141210" stroke="#2C2925"/>
+      
+      <rect x="90" y="15" width="100" height="50" rx="8" fill="#24211E" stroke="#10B981" stroke-width="2"/>
+      <circle cx="140" cy="40" r="15" fill="none" stroke="#34D399" stroke-width="2" stroke-dasharray="2 2"/>
+      <text x="105" y="78" fill="#34D399" font-family="monospace" font-size="9">BIOMETRIC SCANNER</text>
+
+      <g fill="#24211E" stroke="#D6A85F" stroke-width="1" font-family="monospace" font-size="14" font-weight="bold">
+        <rect x="45" y="90" width="50" height="40" rx="6"/><text x="65" y="115" fill="#FFFFFF">1</text>
+        <rect x="115" y="90" width="50" height="40" rx="6"/><text x="135" y="115" fill="#FFFFFF">2</text>
+        <rect x="185" y="90" width="50" height="40" rx="6"/><text x="205" y="115" fill="#FFFFFF">3</text>
+
+        <rect x="45" y="140" width="50" height="40" rx="6"/><text x="65" y="165" fill="#FFFFFF">4</text>
+        <rect x="115" y="140" width="50" height="40" rx="6"/><text x="135" y="165" fill="#FFFFFF">5</text>
+        <rect x="185" y="140" width="50" height="40" rx="6"/><text x="205" y="165" fill="#FFFFFF">6</text>
+
+        <rect x="45" y="190" width="50" height="40" rx="6"/><text x="65" y="215" fill="#FFFFFF">7</text>
+        <rect x="115" y="190" width="50" height="40" rx="6"/><text x="135" y="215" fill="#FFFFFF">8</text>
+        <rect x="185" y="190" width="50" height="40" rx="6"/><text x="205" y="215" fill="#FFFFFF">9</text>
+
+        <rect x="45" y="240" width="50" height="40" rx="6" fill="#7F1D1D" stroke="#EF4444"/><text x="65" y="265" fill="#FFFFFF">*</text>
+        <rect x="115" y="240" width="50" height="40" rx="6"/><text x="135" y="265" fill="#FFFFFF">0</text>
+        <rect x="185" y="240" width="50" height="40" rx="6" fill="#065F46" stroke="#10B981"/><text x="205" y="265" fill="#FFFFFF">#</text>
+      </g>
+      <text x="55" y="300" fill="#D8D1C7" font-family="monospace" font-size="9">RFID CARD &amp; SMARTPHONE APP COMPATIBLE</text>
+    </g>
+  </g>
+
+  <!-- Bottom Details -->
+  <rect x="50" y="630" width="900" height="50" rx="8" fill="#1C1A18" stroke="#C47A44" stroke-width="1"/>
+  <text x="80" y="660" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">AUTOMATIC SLIDING &amp; SWING GATES + BIOMETRIC ACCESS CONTROL</text>
+  <text x="730" y="660" fill="#D6A85F" font-family="monospace" font-size="12">HEAVY-DUTY RELIABILITY</text>
+</svg>

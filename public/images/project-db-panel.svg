@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="metalCase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2C2925"/>
+      <stop offset="50%" stop-color="#1C1A18"/>
+      <stop offset="100%" stop-color="#12100E"/>
+    </linearGradient>
+    <linearGradient id="copperBus" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8C4F23"/>
+      <stop offset="50%" stop-color="#C47A44"/>
+      <stop offset="100%" stop-color="#D6A85F"/>
+    </linearGradient>
+    <linearGradient id="railGleam" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8C8478"/>
+      <stop offset="50%" stop-color="#5C554B"/>
+      <stop offset="100%" stop-color="#332E27"/>
+    </linearGradient>
+    <filter id="glowWarm">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect x="20" y="20" width="960" height="660" rx="16" fill="url(#metalCase)" stroke="#C47A44" stroke-width="2"/>
+  <rect x="35" y="35" width="930" height="630" rx="12" fill="#171513" stroke="#2C2925" stroke-width="1.5"/>
+
+  <!-- Top Incomer Cable Glands -->
+  <g fill="#2C2925" stroke="#4A443D" stroke-width="1">
+    <rect x="80" y="10" width="30" height="25" rx="4"/>
+    <rect x="130" y="10" width="30" height="25" rx="4"/>
+    <rect x="180" y="10" width="30" height="25" rx="4"/>
+    <rect x="230" y="10" width="30" height="25" rx="4"/>
+    <rect x="750" y="10" width="30" height="25" rx="4"/>
+    <rect x="800" y="10" width="30" height="25" rx="4"/>
+    <rect x="850" y="10" width="30" height="25" rx="4"/>
+  </g>
+
+  <!-- Top Header Label Bar -->
+  <rect x="60" y="55" width="880" height="50" rx="8" fill="#24211E" stroke="#C47A44" stroke-width="1"/>
+  <circle cx="85" cy="80" r="6" fill="#C47A44" filter="url(#glowWarm)"/>
+  <text x="105" y="86" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" letter-spacing="1">EMMYLINK 3-PHASE MAIN DISTRIBUTION BOARD (MDB-01)</text>
+  <text x="740" y="85" fill="#D6A85F" font-family="monospace" font-size="14" font-weight="bold">400V 3P+N+E • 50Hz • IP65</text>
+
+  <!-- DIN Rail 1 -->
+  <rect x="60" y="125" width="880" height="14" fill="url(#railGleam)" rx="2"/>
+  <g transform="translate(80, 145)">
+    <!-- 4-Pole Main Incomer 125A -->
+    <rect x="0" y="0" width="120" height="110" rx="6" fill="#C47A44" stroke="#D6A85F" stroke-width="1.5"/>
+    <rect x="15" y="20" width="90" height="45" rx="4" fill="#7A3A10"/>
+    <rect x="50" y="30" width="20" height="25" rx="3" fill="#FEF08A"/>
+    <text x="20" y="90" fill="#FFFFFF" font-family="monospace" font-size="12" font-weight="bold">MAIN 125A</text>
+    <text x="30" y="103" fill="#FDE047" font-family="monospace" font-size="9">4-POLE</text>
+
+    <!-- Surge Protective Device (SPD) -->
+    <g transform="translate(135, 0)">
+      <rect x="0" y="0" width="110" height="110" rx="6" fill="#24211E" stroke="#D6A85F" stroke-width="1.5"/>
+      <rect x="10" y="15" width="18" height="45" rx="2" fill="#10B981"/>
+      <rect x="34" y="15" width="18" height="45" rx="2" fill="#10B981"/>
+      <rect x="58" y="15" width="18" height="45" rx="2" fill="#10B981"/>
+      <rect x="82" y="15" width="18" height="45" rx="2" fill="#10B981"/>
+      <text x="15" y="85" fill="#D6A85F" font-family="monospace" font-size="11" font-weight="bold">SURGE SPD</text>
+      <text x="22" y="100" fill="#D8D1C7" font-family="monospace" font-size="8">Imax 40kA</text>
+    </g>
+
+    <!-- Digital Power Analyzer -->
+    <g transform="translate(260, 0)">
+      <rect x="0" y="0" width="160" height="110" rx="6" fill="#0D0D0D" stroke="#C47A44" stroke-width="1.5"/>
+      <rect x="10" y="10" width="140" height="60" rx="4" fill="#171513"/>
+      <text x="20" y="32" fill="#D6A85F" font-family="monospace" font-size="13" font-weight="bold">L1: 231V  L2: 230V</text>
+      <text x="20" y="50" fill="#D6A85F" font-family="monospace" font-size="13" font-weight="bold">L3: 232V  PF: 0.98</text>
+      <text x="20" y="64" fill="#10B981" font-family="monospace" font-size="10">FREQ: 50.0Hz • THD &lt; 2%</text>
+      <text x="35" y="95" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="10" font-weight="bold">POWER ANALYZER</text>
+    </g>
+
+    <!-- Phase Selector -->
+    <g transform="translate(435, 0)">
+      <rect x="0" y="0" width="140" height="110" rx="6" fill="#24211E" stroke="#C47A44" stroke-width="1"/>
+      <circle cx="35" cy="35" r="8" fill="#C47A44" filter="url(#glowWarm)"/>
+      <circle cx="70" cy="35" r="8" fill="#D6A85F" filter="url(#glowWarm)"/>
+      <circle cx="105" cy="35" r="8" fill="#8C4F23" filter="url(#glowWarm)"/>
+      <text x="20" y="70" fill="#FFFFFF" font-family="monospace" font-size="10" font-weight="bold">PHASE SELECTOR</text>
+      <text x="32" y="95" fill="#10B981" font-family="monospace" font-size="9" font-weight="bold">STATUS: AUTO OK</text>
+    </g>
+
+    <!-- Industrial Relays -->
+    <g transform="translate(590, 0)">
+      <rect x="0" y="0" width="210" height="110" rx="6" fill="#2C2925" stroke="#4A443D" stroke-width="1"/>
+      <rect x="15" y="15" width="40" height="80" rx="3" fill="#1A1715" stroke="#C47A44"/>
+      <rect x="65" y="15" width="40" height="80" rx="3" fill="#1A1715" stroke="#C47A44"/>
+      <rect x="115" y="15" width="40" height="80" rx="3" fill="#1A1715" stroke="#C47A44"/>
+      <rect x="165" y="15" width="30" height="80" rx="3" fill="#1A1715" stroke="#D6A85F"/>
+      <text x="30" y="105" fill="#D8D1C7" font-family="monospace" font-size="8">SMART RELAYS &amp; INTERLOCK</text>
+    </g>
+  </g>
+
+  <!-- DIN Rail 2 -->
+  <rect x="60" y="295" width="880" height="14" fill="url(#railGleam)" rx="2"/>
+  <g transform="translate(80, 315)">
+    <rect x="0" y="-12" width="840" height="6" fill="url(#copperBus)"/>
+
+    <rect x="0" y="0" width="42" height="105" rx="4" fill="#2C2925" stroke="#C47A44" stroke-width="1"/>
+    <rect x="8" y="15" width="26" height="28" rx="2" fill="#141210"/>
+    <circle cx="21" cy="65" r="4" fill="#C47A44"/>
+    <text x="6" y="88" fill="#FFFFFF" font-family="monospace" font-size="8" font-weight="bold">RCD 40A</text>
+    <text x="8" y="99" fill="#D6A85F" font-family="monospace" font-size="7">30mA</text>
+
+    <!-- MCB Array -->
+    <g transform="translate(50, 0)">
+      <rect x="0" y="0" width="36" height="105" rx="3" fill="#2C2925" stroke="#4A443D"/>
+      <text x="6" y="80" fill="#FFFFFF" font-family="monospace" font-size="9" font-weight="bold">C32</text>
+      <text x="4" y="95" fill="#D8D1C7" font-family="monospace" font-size="7">AC 01</text>
+      
+      <rect x="42" y="0" width="36" height="105" rx="3" fill="#2C2925" stroke="#4A443D"/>
+      <text x="48" y="80" fill="#FFFFFF" font-family="monospace" font-size="9" font-weight="bold">C32</text>
+      <text x="46" y="95" fill="#D8D1C7" font-family="monospace" font-size="7">AC 02</text>
+
+      <rect x="84" y="0" width="36" height="105" rx="3" fill="#2C2925" stroke="#4A443D"/>
+      <text x="90" y="80" fill="#FFFFFF" font-family="monospace" font-size="9" font-weight="bold">C20</text>
+      <text x="88" y="95" fill="#D8D1C7" font-family="monospace" font-size="7">WTR HTR</text>
+
+      <rect x="126" y="0" width="36" height="105" rx="3" fill="#2C2925" stroke="#4A443D"/>
+      <text x="132" y="80" fill="#FFFFFF" font-family="monospace" font-size="9" font-weight="bold">C32</text>
+      <text x="130" y="95" fill="#D8D1C7" font-family="monospace" font-size="7">KTCH SK</text>
+
+      <rect x="168" y="0" width="36" height="105" rx="3" fill="#2C2925" stroke="#4A443D"/>
+      <text x="174" y="80" fill="#FFFFFF" font-family="monospace" font-size="9" font-weight="bold">C32</text>
+      <text x="172" y="95" fill="#D8D1C7" font-family="monospace" font-size="7">LVNG SK</text>
+
+      <rect x="210" y="0" width="36" height="105" rx="3" fill="#2C2925" stroke="#4A443D"/>
+      <text x="216" y="80" fill="#FFFFFF" font-family="monospace" font-size="9" font-weight="bold">C32</text>
+      <text x="214" y="95" fill="#D8D1C7" font-family="monospace" font-size="7">BED SKT</text>
+
+      <rect x="252" y="0" width="36" height="105" rx="3" fill="#24211E" stroke="#C47A44"/>
+      <text x="258" y="80" fill="#D6A85F" font-family="monospace" font-size="9" font-weight="bold">C10</text>
+      <text x="256" y="95" fill="#D6A85F" font-family="monospace" font-size="7">SMART L1</text>
+
+      <rect x="294" y="0" width="36" height="105" rx="3" fill="#24211E" stroke="#C47A44"/>
+      <text x="300" y="80" fill="#D6A85F" font-family="monospace" font-size="9" font-weight="bold">C10</text>
+      <text x="298" y="95" fill="#D6A85F" font-family="monospace" font-size="7">SMART L2</text>
+
+      <rect x="336" y="0" width="36" height="105" rx="3" fill="#1C1A18" stroke="#10B981"/>
+      <text x="342" y="80" fill="#10B981" font-family="monospace" font-size="9" font-weight="bold">C10</text>
+      <text x="340" y="95" fill="#10B981" font-family="monospace" font-size="7">CCTV SEC</text>
+
+      <rect x="378" y="0" width="36" height="105" rx="3" fill="#24211E" stroke="#D6A85F"/>
+      <text x="384" y="80" fill="#D6A85F" font-family="monospace" font-size="9" font-weight="bold">C16</text>
+      <text x="382" y="95" fill="#D6A85F" font-family="monospace" font-size="7">GATE MTR</text>
+
+      <rect x="420" y="0" width="36" height="105" rx="3" fill="#2C2925" stroke="#C47A44"/>
+      <text x="426" y="80" fill="#D8D1C7" font-family="monospace" font-size="9" font-weight="bold">C32</text>
+      <text x="424" y="95" fill="#D8D1C7" font-family="monospace" font-size="7">INV BYP</text>
+
+      <rect x="462" y="0" width="36" height="105" rx="3" fill="#24211E" stroke="#D6A85F"/>
+      <text x="468" y="80" fill="#D6A85F" font-family="monospace" font-size="9" font-weight="bold">C16</text>
+      <text x="466" y="95" fill="#D6A85F" font-family="monospace" font-size="7">COMM RCK</text>
+
+      <rect x="504" y="0" width="36" height="105" rx="3" fill="#2C2925" stroke="#4A443D"/>
+      <text x="510" y="80" fill="#FFFFFF" font-family="monospace" font-size="9" font-weight="bold">C10</text>
+      <text x="508" y="95" fill="#D8D1C7" font-family="monospace" font-size="7">PERIM LT</text>
+
+      <rect x="546" y="0" width="36" height="105" rx="3" fill="#1C1A18" stroke="#3D3833"/>
+      <text x="552" y="80" fill="#9FB2C1" font-family="monospace" font-size="9" font-weight="bold">C16</text>
+      <text x="550" y="95" fill="#9FB2C1" font-family="monospace" font-size="7">SPARE 01</text>
+    </g>
+  </g>
+
+  <!-- DIN Rail 3 -->
+  <rect x="60" y="465" width="880" height="14" fill="url(#railGleam)" rx="2"/>
+  <g transform="translate(80, 485)">
+    <rect x="0" y="0" width="260" height="95" rx="6" fill="#1A1715" stroke="#C47A44" stroke-width="1.5"/>
+    <circle cx="30" cy="27" r="5" fill="#C47A44" filter="url(#glowWarm)"/>
+    <circle cx="55" cy="27" r="5" fill="#C47A44" filter="url(#glowWarm)"/>
+    <circle cx="80" cy="27" r="5" fill="#C47A44" filter="url(#glowWarm)"/>
+    <circle cx="105" cy="27" r="5" fill="#C47A44" filter="url(#glowWarm)"/>
+    <circle cx="130" cy="27" r="5" fill="#10B981"/>
+    <circle cx="155" cy="27" r="5" fill="#10B981"/>
+    <circle cx="180" cy="27" r="5" fill="#10B981"/>
+    <circle cx="205" cy="27" r="5" fill="#10B981"/>
+    <text x="20" y="65" fill="#FFFFFF" font-family="monospace" font-size="12" font-weight="bold">EMMYLINK 8-CH IOT RELAY HUB</text>
+    <text x="20" y="82" fill="#D6A85F" font-family="monospace" font-size="9">ZIGBEE 3.0 / WI-FI / TUYA COMPLIANT</text>
+
+    <!-- DALI Bus Controller -->
+    <g transform="translate(280, 0)">
+      <rect x="0" y="0" width="240" height="95" rx="6" fill="#24211E" stroke="#D6A85F" stroke-width="1.5"/>
+      <text x="20" y="35" fill="#D6A85F" font-family="monospace" font-size="12" font-weight="bold">DALI-2 BUS CONTROLLER</text>
+      <text x="20" y="58" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="11">Broadcast &amp; Individual Address</text>
+      <rect x="20" y="68" width="200" height="12" rx="6" fill="#141210"/>
+      <rect x="20" y="68" width="150" height="12" rx="6" fill="#C47A44"/>
+    </g>
+
+    <!-- Grounding Terminal -->
+    <g transform="translate(540, 0)">
+      <rect x="0" y="0" width="250" height="95" rx="6" fill="#141210" stroke="#10B981" stroke-width="1.5"/>
+      <rect x="10" y="15" width="230" height="12" fill="#D6A85F" rx="2"/>
+      <text x="20" y="50" fill="#10B981" font-family="monospace" font-size="11" font-weight="bold">EARTH GROUNDING MATRIX</text>
+      <text x="20" y="72" fill="#D8D1C7" font-family="monospace" font-size="9">TESTED RESISTANCE: &lt; 0.8 OHMS</text>
+      <circle cx="220" cy="50" r="8" fill="#10B981" filter="url(#glowWarm)"/>
+    </g>
+  </g>
+
+  <!-- Bottom Workmanship Verification -->
+  <rect x="60" y="605" width="880" height="40" rx="6" fill="#1C1A18" stroke="#C47A44" stroke-width="1"/>
+  <text x="80" y="630" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="11">INSTALLED &amp; COMMISSIONED BY: <tspan fill="#C47A44" font-weight="bold">EMMYLINK ELECTRICAL &amp; AUTOMATION SERVICES</tspan></text>
+  <text x="730" y="630" fill="#10B981" font-family="monospace" font-size="11" font-weight="bold">✓ CERTIFIED QA PASSED</text>
+</svg>

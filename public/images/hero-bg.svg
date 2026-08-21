@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <radialGradient id="heroGrad" cx="75%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#24211E"/>
+      <stop offset="40%" stop-color="#171717"/>
+      <stop offset="100%" stop-color="#0D0D0D"/>
+    </radialGradient>
+    <linearGradient id="copperGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C47A44" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#D6A85F" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#171717" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="warmTrackLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB" stop-opacity="0.9"/>
+      <stop offset="20%" stop-color="#FDE047" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#C47A44" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="archGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(214, 168, 95, 0.05)" stroke-width="1"/>
+      <circle cx="60" cy="0" r="1.5" fill="rgba(196, 122, 68, 0.15)"/>
+    </pattern>
+    <filter id="heroBlur">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1920" height="1080" fill="url(#heroGrad)"/>
+  <rect width="1920" height="1080" fill="url(#archGrid)"/>
+
+  <!-- Architectural Ceiling & False Ceiling Recesses -->
+  <polygon points="0,0 1920,0 1920,240 0,200" fill="#121212"/>
+  <!-- Floor Grid -->
+  <polygon points="0,880 1920,840 1920,1080 0,1080" fill="#0F0E0D"/>
+  
+  <!-- Architectural Ceiling Magnetic Track Lights with warm illumination cones -->
+  <g>
+    <!-- Track channel 1 (Matte Dark Charcoal with Copper Edge) -->
+    <rect x="300" y="160" width="1320" height="12" rx="2" fill="#1C1A18" stroke="#C47A44" stroke-width="1" stroke-opacity="0.4"/>
+    <rect x="302" y="164" width="1316" height="4" fill="#0A0A0A"/>
+    
+    <!-- Module 1: Spotlights -->
+    <rect x="450" y="172" width="40" height="20" rx="4" fill="#24211E" stroke="#D6A85F" stroke-width="0.8"/>
+    <polygon points="440,192 490,192 620,750 320,750" fill="url(#warmTrackLight)" opacity="0.22"/>
+    
+    <!-- Module 2: Linear Warm Diffused Light Bar -->
+    <rect x="600" y="164" width="280" height="8" rx="2" fill="#FEF08A" filter="drop-shadow(0 0 10px #D6A85F)"/>
+    <polygon points="600,172 880,172 960,650 520,650" fill="url(#warmTrackLight)" opacity="0.18"/>
+    
+    <!-- Module 3: Spotlight pair -->
+    <rect x="1050" y="172" width="35" height="18" rx="3" fill="#24211E" stroke="#C47A44" stroke-width="0.8"/>
+    <polygon points="1045,190 1085,190 1200,800 950,800" fill="url(#warmTrackLight)" opacity="0.25"/>
+
+    <rect x="1120" y="172" width="35" height="18" rx="3" fill="#24211E" stroke="#C47A44" stroke-width="0.8"/>
+    <polygon points="1115,190 1155,190 1280,800 1010,800" fill="url(#warmTrackLight)" opacity="0.22"/>
+    
+    <!-- Module 4: Copper Accent strip -->
+    <rect x="1300" y="164" width="220" height="6" rx="2" fill="#C47A44" filter="drop-shadow(0 0 12px #C47A44)"/>
+    <polygon points="1300,170 1520,170 1600,600 1220,600" fill="url(#copperGlow)" opacity="0.15"/>
+  </g>
+
+  <!-- Right Side: Wall-Mounted Automation & Electrical Showcase -->
+  <g transform="translate(1180, 220)">
+    <!-- Modern Wall Feature Panel with Backlit Copper/Gold Perimeter -->
+    <rect x="0" y="0" width="620" height="680" rx="16" fill="#1A1715" stroke="#C47A44" stroke-width="1.5"/>
+    <rect x="-6" y="-6" width="632" height="692" rx="20" fill="none" stroke="#D6A85F" stroke-width="1" opacity="0.35" filter="url(#heroBlur)"/>
+    
+    <!-- Header of Showcase -->
+    <rect x="24" y="24" width="572" height="50" rx="8" fill="#24211E"/>
+    <circle cx="50" cy="49" r="8" fill="#C47A44" filter="drop-shadow(0 0 6px #C47A44)"/>
+    <text x="70" y="54" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="800" letter-spacing="1.5">3-PHASE AUTOMATION &amp; DISTRIBUTION MATRIX</text>
+    <text x="540" y="54" fill="#D6A85F" font-family="monospace" font-size="14" font-weight="bold">400V 50Hz</text>
+
+    <!-- Sub-Section 1: Industrial DIN-Rail Distribution Board (DB) -->
+    <g transform="translate(24, 94)">
+      <rect x="0" y="0" width="572" height="280" rx="10" fill="#141210" stroke="#2C2925" stroke-width="1.5"/>
+      <!-- Busbar & DIN Rails -->
+      <line x1="20" y1="75" x2="552" y2="75" stroke="#3D3833" stroke-width="4" stroke-linecap="round"/>
+      <line x1="20" y1="160" x2="552" y2="160" stroke="#3D3833" stroke-width="4" stroke-linecap="round"/>
+      <line x1="20" y1="245" x2="552" y2="245" stroke="#3D3833" stroke-width="4" stroke-linecap="round"/>
+      
+      <!-- Copper Phase Bars -->
+      <rect x="25" y="15" width="522" height="8" rx="2" fill="#C47A44" opacity="0.9"/>
+      <rect x="25" y="27" width="522" height="8" rx="2" fill="#D6A85F" opacity="0.8"/>
+      <rect x="25" y="39" width="522" height="8" rx="2" fill="#8C4F23" opacity="0.9"/>
+
+      <!-- Breakers on Rail 1 -->
+      <!-- 4-Pole Main Isolator (Red/Charcoal) -->
+      <rect x="35" y="55" width="70" height="52" rx="4" fill="#C47A44" stroke="#D6A85F" stroke-width="1"/>
+      <rect x="45" y="65" width="50" height="20" rx="2" fill="#7A3A10"/>
+      <circle cx="70" cy="75" r="4" fill="#FEF08A"/>
+      <text x="42" y="100" fill="#FFFFFF" font-family="monospace" font-size="9" font-weight="bold">MAIN 100A</text>
+
+      <!-- Surge Protection Device (SPD) -->
+      <rect x="115" y="55" width="60" height="52" rx="4" fill="#24211E" stroke="#C47A44" stroke-width="1"/>
+      <rect x="123" y="62" width="18" height="18" fill="#10B981" rx="2"/>
+      <rect x="147" y="62" width="18" height="18" fill="#10B981" rx="2"/>
+      <text x="120" y="100" fill="#D6A85F" font-family="monospace" font-size="8" font-weight="bold">SPD Type 2</text>
+
+      <!-- Digital Voltage & Phase Monitor (Amber OLED Display) -->
+      <rect x="185" y="55" width="95" height="52" rx="4" fill="#0D0D0D" stroke="#C47A44" stroke-width="1.5"/>
+      <text x="195" y="75" fill="#D6A85F" font-family="monospace" font-size="12" font-weight="bold">L1: 232V</text>
+      <text x="195" y="92" fill="#10B981" font-family="monospace" font-size="10" font-weight="bold">OK • 49.9Hz</text>
+
+      <!-- Smart Relay Automation Modules -->
+      <rect x="290" y="55" width="75" height="52" rx="4" fill="#2C2925" stroke="#C47A44" stroke-width="1"/>
+      <circle cx="305" cy="68" r="3" fill="#C47A44" filter="drop-shadow(0 0 3px #C47A44)"/>
+      <circle cx="320" cy="68" r="3" fill="#C47A44" filter="drop-shadow(0 0 3px #C47A44)"/>
+      <circle cx="335" cy="68" r="3" fill="#C47A44" filter="drop-shadow(0 0 3px #C47A44)"/>
+      <circle cx="350" cy="68" r="3" fill="#C47A44" filter="drop-shadow(0 0 3px #C47A44)"/>
+      <text x="298" y="98" fill="#D8D1C7" font-family="monospace" font-size="8">SMART CH4</text>
+
+      <!-- Row of MCBs -->
+      <rect x="375" y="55" width="24" height="52" rx="3" fill="#2C2925" stroke="#4A443D" stroke-width="0.8"/>
+      <rect x="380" y="68" width="14" height="18" rx="2" fill="#141210"/>
+      <text x="378" y="102" fill="#D8D1C7" font-family="monospace" font-size="7">C32</text>
+
+      <rect x="403" y="55" width="24" height="52" rx="3" fill="#2C2925" stroke="#4A443D" stroke-width="0.8"/>
+      <rect x="408" y="68" width="14" height="18" rx="2" fill="#141210"/>
+      <text x="406" y="102" fill="#D8D1C7" font-family="monospace" font-size="7">C20</text>
+
+      <rect x="431" y="55" width="24" height="52" rx="3" fill="#2C2925" stroke="#4A443D" stroke-width="0.8"/>
+      <rect x="436" y="68" width="14" height="18" rx="2" fill="#141210"/>
+      <text x="434" y="102" fill="#D8D1C7" font-family="monospace" font-size="7">C16</text>
+
+      <rect x="459" y="55" width="24" height="52" rx="3" fill="#2C2925" stroke="#4A443D" stroke-width="0.8"/>
+      <rect x="464" y="68" width="14" height="18" rx="2" fill="#141210"/>
+      <text x="462" y="102" fill="#D8D1C7" font-family="monospace" font-size="7">C10</text>
+
+      <rect x="487" y="55" width="24" height="52" rx="3" fill="#2C2925" stroke="#4A443D" stroke-width="0.8"/>
+      <rect x="492" y="68" width="14" height="18" rx="2" fill="#141210"/>
+      <text x="490" y="102" fill="#D8D1C7" font-family="monospace" font-size="7">C10</text>
+
+      <rect x="515" y="55" width="24" height="52" rx="3" fill="#2C2925" stroke="#4A443D" stroke-width="0.8"/>
+      <rect x="520" y="68" width="14" height="18" rx="2" fill="#141210"/>
+      <text x="518" y="102" fill="#D8D1C7" font-family="monospace" font-size="7">C6</text>
+
+      <!-- Rail 2: Automatic Transfer Switch (ATS) & Dimmer Modules -->
+      <rect x="35" y="140" width="140" height="56" rx="4" fill="#1A1715" stroke="#C47A44" stroke-width="1"/>
+      <text x="45" y="158" fill="#FFFFFF" font-family="monospace" font-size="10" font-weight="bold">ATS CONTROLLER</text>
+      <text x="45" y="174" fill="#D6A85F" font-family="monospace" font-size="9">SOURCE: SOLAR HYBRID</text>
+      <circle cx="155" cy="160" r="4" fill="#10B981"/>
+
+      <!-- Smart Dimmer Modules -->
+      <rect x="185" y="140" width="90" height="56" rx="4" fill="#24211E" stroke="#D6A85F" stroke-width="1"/>
+      <text x="193" y="158" fill="#D6A85F" font-family="monospace" font-size="8" font-weight="bold">DALI / 0-10V</text>
+      <text x="193" y="172" fill="#FFFFFF" font-family="monospace" font-size="10">ZONE 1-4</text>
+      <circle cx="255" cy="172" r="3" fill="#C47A44"/>
+
+      <!-- Structured Wiring Harness -->
+      <g stroke="#C47A44" stroke-width="2" fill="none" opacity="0.8">
+        <path d="M290,145 L290,135 L400,135 L400,120" stroke="#C47A44"/>
+        <path d="M310,145 L310,130 L430,130 L430,120" stroke="#D6A85F"/>
+        <path d="M330,145 L330,125 L460,125 L460,120" stroke="#E07A3B"/>
+        <path d="M350,145 L350,120 L490,120 L490,120" stroke="#10B981"/>
+      </g>
+      
+      <rect x="375" y="140" width="164" height="56" rx="4" fill="#2C2925" stroke="#4A443D" stroke-width="1"/>
+      <text x="390" y="172" fill="#D8D1C7" font-family="monospace" font-size="10">LOAD BALANCING: BALANCED</text>
+    </g>
+
+    <!-- Sub-Section 2: Wall Touch Panel / Smart Automation Hub Interface -->
+    <g transform="translate(24, 395)">
+      <rect x="0" y="0" width="572" height="260" rx="12" fill="#0D0D0D" stroke="#C47A44" stroke-width="1.5"/>
+      <rect x="12" y="12" width="548" height="236" rx="8" fill="#1A1715"/>
+      
+      <!-- Top Status Bar -->
+      <text x="30" y="38" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="14" font-weight="bold">EMMYLINK SMART LIVING</text>
+      <text x="420" y="38" fill="#D6A85F" font-family="'Inter', sans-serif" font-size="13">24°C • MAITAMA VILLA</text>
+      <line x1="30" y1="48" x2="530" y2="48" stroke="#2C2925" stroke-width="1"/>
+
+      <!-- Widget 1: Lighting Scenes -->
+      <g transform="translate(30, 60)">
+        <rect x="0" y="0" width="155" height="170" rx="8" fill="#24211E" stroke="#C47A44" stroke-width="1"/>
+        <text x="14" y="25" fill="#D6A85F" font-family="'Inter', sans-serif" font-size="11" font-weight="700">LIGHTING SCENES</text>
+        
+        <rect x="12" y="38" width="131" height="32" rx="6" fill="#C47A44"/>
+        <text x="30" y="58" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="11" font-weight="700">✨ Evening Ambient</text>
+        
+        <rect x="12" y="78" width="131" height="32" rx="6" fill="#141210" stroke="#3D3833"/>
+        <text x="30" y="98" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="11">🎬 Cinema Mode</text>
+        
+        <rect x="12" y="118" width="131" height="32" rx="6" fill="#141210" stroke="#3D3833"/>
+        <text x="30" y="138" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="11">🌙 Good Night</text>
+      </g>
+
+      <!-- Widget 2: Power & Solar Telemetry -->
+      <g transform="translate(195, 60)">
+        <rect x="0" y="0" width="170" height="170" rx="8" fill="#24211E" stroke="#C47A44" stroke-width="1"/>
+        <text x="14" y="25" fill="#D6A85F" font-family="'Inter', sans-serif" font-size="11" font-weight="700">SOLAR &amp; POWER</text>
+        
+        <text x="14" y="55" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="12">Solar Input:</text>
+        <text x="14" y="75" fill="#D6A85F" font-family="'Inter', sans-serif" font-size="18" font-weight="bold">5.8 kW</text>
+
+        <text x="14" y="105" fill="#D8D1C7" font-family="'Inter', sans-serif" font-size="12">LiFePO4 Battery:</text>
+        <text x="14" y="125" fill="#10B981" font-family="'Inter', sans-serif" font-size="18" font-weight="bold">98% (52.8V)</text>
+        
+        <rect x="14" y="138" width="142" height="8" rx="4" fill="#141210"/>
+        <rect x="14" y="138" width="139" height="8" rx="4" fill="#C47A44"/>
+      </g>
+
+      <!-- Widget 3: CCTV & Security Status -->
+      <g transform="translate(375, 60)">
+        <rect x="0" y="0" width="155" height="170" rx="8" fill="#24211E" stroke="#C47A44" stroke-width="1"/>
+        <text x="14" y="25" fill="#D6A85F" font-family="'Inter', sans-serif" font-size="11" font-weight="700">SECURITY / CCTV</text>
+        
+        <rect x="12" y="38" width="131" height="75" rx="4" fill="#0D0D0D" stroke="#3D3833"/>
+        <circle cx="24" cy="52" r="4" fill="#EF4444" filter="drop-shadow(0 0 3px #EF4444)"/>
+        <text x="34" y="55" fill="#FFFFFF" font-family="monospace" font-size="9">CAM 01: GATE LIVE</text>
+        <path d="M20,95 L65,70 L110,85 L135,65" stroke="#D6A85F" stroke-width="1.5" fill="none" opacity="0.6"/>
+        
+        <rect x="12" y="122" width="131" height="28" rx="4" fill="#141210" stroke="#C47A44"/>
+        <text x="24" y="140" fill="#D6A85F" font-family="'Inter', sans-serif" font-size="10" font-weight="600">🛡️ Perimeter Armed</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Left Side Conduit Trunking -->
+  <g opacity="0.35">
+    <rect x="80" y="0" width="6" height="1080" fill="#2C2925"/>
+    <rect x="120" y="0" width="6" height="1080" fill="#2C2925"/>
+    <line x1="86" y1="400" x2="220" y2="400" stroke="#C47A44" stroke-dasharray="4 4"/>
+    <line x1="86" y1="650" x2="220" y2="650" stroke="#C47A44" stroke-dasharray="4 4"/>
+  </g>
+
+  <rect width="1920" height="1080" fill="none" stroke="#171717" stroke-width="20" opacity="0.5"/>
+</svg>
