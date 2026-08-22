@@ -1,89 +1,57 @@
-# EMMYLINK ELECTRICAL & SMART SOLUTIONS — NEXT.JS CMS
+# EMMYLINK ELECTRICAL & SMART SOLUTIONS
 
-Official dynamic corporate website & CMS for **EMMYLINK ELECTRICAL & SMART SOLUTIONS** based in Abuja, Nigeria.
+Official corporate website for **EMMYLINK ELECTRICAL & SMART SOLUTIONS** based in Abuja, Nigeria.
 
-- **Production URL:** `https://emmylink.vercel.app/`
-- **Supabase Project:** `https://gynzzbqwivpbsviwhdbl.supabase.co`
-- **Cloudinary Cloud:** `keudsavp`
+## 🚀 Live GitHub Pages Deployment Guide
 
----
+This project is built as a zero-dependency, pure static web application configured for deployment on **GitHub Pages**.
 
-## 🛠️ Tech Stack
+### Steps to Deploy on GitHub Pages:
+1. **Push this repository to GitHub** (e.g. `https://github.com/<your-username>/emmylink-website`).
+2. Go to your repository **Settings** on GitHub.
+3. In the left navigation, click on **Pages** (under *Code and automation*).
+4. Under **Build and deployment**:
+   - **Source:** Select `Deploy from a branch`
+   - **Branch:** Select `main` (or `master`) and folder `/ (root)`
+   - Click **Save**.
+5. GitHub Pages will build and publish your site at `https://<your-username>.github.io/emmylink-website/`.
 
-- **Framework:** Next.js 14 (App Router, Server Actions, Server Components)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS (Custom Zero-Blue Luxury Warm Charcoal & Bronze Palette)
-- **Database & Auth:** Supabase PostgreSQL + Row Level Security (RLS)
-- **Media Storage:** Cloudinary (Images & Project Showcase Video)
-- **Deployment:** Vercel
-
----
-
-## 🚀 Getting Started
-
-### 1. Install Dependencies
-```bash
-npm install
-```
-
-### 2. Configure Environment Variables
-Copy `.env.example` to `.env.local` and add your Supabase & Cloudinary keys:
-```bash
-cp .env.example .env.local
-```
-
-```ini
-# Supabase Configuration
-NEXT_PUBLIC_SUPABASE_URL=https://gynzzbqwivpbsviwhdbl.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_public_key
-SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_secret_key
-
-# Cloudinary Configuration
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=keudsavp
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-
-# Site URL
-NEXT_PUBLIC_SITE_URL=https://emmylink.vercel.app
-```
-
-### 3. Run Database Migrations
-Execute the SQL commands in `supabase/schema.sql` inside your Supabase project's **SQL Editor**.
-
-### 4. Run Development Server
-```bash
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) for the public website, or [http://localhost:3000/admin](http://localhost:3000/admin) for the CMS portal.
+> **Note:** All CSS, JavaScript, image, and video assets use **relative paths** (`css/style.css`, `js/app.js`, `images/...`, `videos/...`), meaning the website will work whether deployed to a root domain (`https://example.com`) or a GitHub repository sub-path (`https://username.github.io/repository-name/`).
 
 ---
 
 ## 📁 Repository Structure
 
 ```text
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx                 # Root layout & global metadata
-│   │   ├── page.tsx                   # Dynamic Homepage with SSR & Fallback
-│   │   ├── globals.css                # Tailwind & custom luxury theme
-│   │   ├── admin/
-│   │   │   ├── (auth)/                # Public login & password reset routes
-│   │   │   │   ├── login/page.tsx
-│   │   │   │   ├── forgot-password/page.tsx
-│   │   │   │   └── reset-password/page.tsx
-│   │   │   └── (dashboard)/           # Protected CMS Dashboard routes
-│   │   │       ├── layout.tsx         # Admin gate & role check
-│   │   │       └── page.tsx           # Overview metrics & quick actions
-│   │   └── auth/                      # OAuth & signout API routes
-│   ├── components/                    # UI primitives, Admin shell & Public components
-│   ├── lib/                           # Supabase SSR clients, Cloudinary & utilities
-│   ├── fallback/                      # 100% Failover content ensuring zero blank pages
-│   └── types/                         # TypeScript database interfaces
-├── public/
-│   ├── images/                        # High-resolution real Abuja project photos & logo
-│   └── videos/                        # TV-wall completed project showcase video
-├── supabase/
-│   └── schema.sql                     # PostgreSQL schema, triggers & hardened RLS
-├── middleware.ts                      # Route protection & cookie refresh
-└── next.config.mjs                    # Cloudinary & Supabase remote images config
+├── .nojekyll                 # Disables Jekyll processing for GitHub Pages
+├── index.html                # Main website entry page (semantic HTML5)
+├── css/
+│   └── style.css             # Luxury Corporate stylesheet (Zero-Blue palette)
+├── js/
+│   └── app.js                # Dynamic interactions (Lightbox, filter, calculator, WhatsApp dispatch)
+├── images/                   # High-resolution project photographs and official brand assets
+│   ├── emmylink-emblem.png   # New official brand emblem logo
+│   ├── video-poster.jpg      # Video preview poster
+│   └── real-*.jpg            # Real completed Abuja installation photos
+├── videos/
+│   └── emmylink-tv-wall-project.mp4  # Real project showcase video (1080p MP4)
+└── README.md                 # Deployment & project documentation
 ```
+
+---
+
+## ⚡ Business & Contact Details
+
+- **Company:** EMMYLINK ELECTRICAL & SMART SOLUTIONS
+- **Location:** Abuja, Nigeria (FCT)
+- **Phone:** `07088615600`
+- **WhatsApp:** `+2347088615600` ([Direct WhatsApp Chat](https://wa.me/2347088615600))
+- **Email:** `fability634@gmail.com`
+
+### Core Services
+- Professional Electrical Installation (Residential, Commercial & 3-Phase Systems)
+- Smart Home Automation & IoT Integration
+- 4K HD CCTV Surveillance & Central Monitoring Stations
+- Automatic Gates, Biometric Access Control & Digital Smart Locks
+- Solar Inverters & Lithium Battery Power Storage Matrix
+- Structured CAT6/Fiber Server Rack Networking & IP PBX Intercoms

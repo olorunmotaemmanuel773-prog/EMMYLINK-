@@ -1,7 +1,8 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
+import type { Database } from '@/types/database.types';
 
-export async function middleware(request: NextRequest) {
+export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({
     request: {
       headers: request.headers,
@@ -15,34 +16,51 @@ export async function middleware(request: NextRequest) {
     return response;
   }
 
-  const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
+  const supabase = createServerClient<Database>(supabaseUrl, supabaseAnonKey, {
     cookies: {
       get(name: string) {
         return request.cookies.get(name)?.value;
       },
       set(name: string, value: string, options: CookieOptions) {
-        request.cookies.set({ name, value, ...options });
+        request.cookies.set({
+          name,
+          value,
+          ...options,
+        });
         response = NextResponse.next({
           request: {
             headers: request.headers,
           },
         });
-        response.cookies.set({ name, value, ...options });
+        response.cookies.set({
+          name,
+          value,
+          ...options,
+        });
       },
       remove(name: string, options: CookieOptions) {
-        request.cookies.set({ name, value: '', ...options });
+        request.cookies.set({
+          name,
+          value: '',
+          ...options,
+        });
         response = NextResponse.next({
           request: {
             headers: request.headers,
           },
         });
-        response.cookies.set({ name, value: '', ...options });
+        response.cookies.set({
+          name,
+          value: '',
+          ...options,
+        });
       },
     },
   });
 
   const pathname = request.nextUrl.pathname;
 
+  // Check if route is protected admin route
   const isAdminRoute = pathname.startsWith('/admin');
   const isAuthPageRoute =
     pathname === '/admin/login' ||
@@ -73,6 +91,7 @@ export async function middleware(request: NextRequest) {
     const role = (profile as any)?.role;
 
     if (error || !profile || !['admin', 'super_admin'].includes(role)) {
+      // User is authenticated but NOT in admin_profiles
       const redirectUrl = request.nextUrl.clone();
       redirectUrl.pathname = '/admin/login';
       redirectUrl.searchParams.set('error', 'unauthorized');
@@ -99,9 +118,3 @@ export async function middleware(request: NextRequest) {
 
   return response;
 }
-
-export const config = {
-  matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|images|videos|.*\\.(?:svg|png|jpg|jpeg|gif|webp|mp4)$).*)',
-  ],
-};
