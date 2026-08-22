@@ -3,6 +3,8 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import AdminShellClient from '@/components/admin/AdminShellClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'EMMYLINK Admin Portal | CMS Dashboard',
   robots: {
@@ -22,22 +24,22 @@ export default async function AdminLayout({
   try {
     const supabase = await createClient();
 
-    // 1. Get authenticated user
-    const { data: authData } = await supabase.auth.getUser();
+    // 1. Get current authenticated user
+    const { data: authData, error: authError } = await supabase.auth.getUser();
     user = authData?.user;
 
-    if (!user) {
+    if (authError || !user) {
       redirect('/admin/login');
     }
 
-    // 2. Fetch admin profile
-    const { data: dbProfile, error } = await supabase
+    // 2. Query admin_profiles table for authorized administrator role
+    const { data: dbProfile, error: profileError } = await supabase
       .from('admin_profiles')
       .select('*')
       .eq('id', user.id)
       .single();
 
-    if (error || !dbProfile) {
+    if (profileError || !dbProfile) {
       redirect('/admin/login?error=unauthorized');
     }
 
@@ -46,7 +48,12 @@ export default async function AdminLayout({
     if (!profile || !['admin', 'super_admin'].includes(profile.role)) {
       redirect('/admin/login?error=unauthorized');
     }
-  } catch (err) {
+  } catch (err: any) {
+    // If Next.js redirect threw NEXT_REDIRECT, re-throw it so Next.js handles the redirect
+    if (err?.message === 'NEXT_REDIRECT') {
+      throw err;
+    }
+    console.error('Admin layout verification notice:', err);
     redirect('/admin/login?error=unauthorized');
   }
 
