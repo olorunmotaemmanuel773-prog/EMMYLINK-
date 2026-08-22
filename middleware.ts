@@ -1,6 +1,36 @@
+import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
+import type { Database } from '@/types/database.types';
 
-export function middleware(request: NextRequest) {
+export async function updateSession(request: NextRequest) {
+  let supabaseResponse = NextResponse.next({
+    request,
+  });
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseAnonKey || !supabaseUrl.startsWith('http')) {
+    return supabaseResponse;
+  }
+
+  const supabase = createServerClient<Database>(supabaseUrl, supabaseAnonKey, {
+    cookies: {
+      getAll() {
+        return request.cookies.getAll();
+      },
+      setAll(cookiesToSet: Array<{ name: string; value: string; options?: any }>) {
+        cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
+        supabaseResponse = NextResponse.next({
+          request,
+        });
+        cookiesToSet.forEach(({ name, value, options }) =>
+          supabaseResponse.cookies.set(name, value, options)
+        );
+      },
+    },
+  });
+
   const pathname = request.nextUrl.pathname;
 
   const isAdminRoute = pathname.startsWith('/admin');
@@ -9,34 +39,23 @@ export function middleware(request: NextRequest) {
     pathname === '/admin/forgot-password' ||
     pathname === '/admin/reset-password';
 
-  // Check if any Supabase auth session cookie exists
-  const allCookies = request.cookies.getAll();
-  const hasAuthCookie = allCookies.some(
-    (cookie) =>
-      cookie.name.startsWith('sb-') &&
-      (cookie.name.includes('auth-token') || cookie.name.includes('token') || cookie.name.includes('access'))
-  );
+  // getUser() validates the token and refreshes cookies if expired
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  // If accessing protected /admin route without an auth session, redirect to /admin/login
-  if (isAdminRoute && !isAuthPageRoute && !hasAuthCookie) {
+  if (isAdminRoute && !isAuthPageRoute && !user) {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = '/admin/login';
     redirectUrl.searchParams.set('redirectTo', pathname);
     return NextResponse.redirect(redirectUrl);
   }
 
-  // If visiting login page and already has an active auth session, redirect to /admin
-  if (isAuthPageRoute && hasAuthCookie) {
+  if (isAuthPageRoute && user) {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = '/admin';
     return NextResponse.redirect(redirectUrl);
   }
 
-  return NextResponse.next();
+  return supabaseResponse;
 }
-
-export const config = {
-  matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|images|videos|.*\\.(?:svg|png|jpg|jpeg|gif|webp|mp4)$).*)',
-  ],
-};
