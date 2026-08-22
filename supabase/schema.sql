@@ -1,6 +1,6 @@
 -- ==============================================================================
 -- EMMYLINK ELECTRICAL & SMART SOLUTIONS — MASTER SUPABASE DATABASE SCHEMA
--- Version: 3.0 (Comprehensive CMS Schema, Hardened RLS & Dynamic Sections)
+-- Version: 3.1 (Order Fixed: Tables Created First, Hardened RLS & Dynamic CMS)
 -- Target Project: https://gynzzbqwivpbsviwhdbl.supabase.co
 -- Location: Abuja, Nigeria
 -- ==============================================================================
@@ -10,56 +10,19 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 -- ==============================================================================
--- 1. HELPER FUNCTIONS & TRIGGERS
+-- 1. TABLE DEFINITIONS (CREATED FIRST)
 -- ==============================================================================
 
--- Automatic timestamp updater trigger function
-CREATE OR REPLACE FUNCTION public.update_updated_at_column()
-RETURNS TRIGGER AS $$
-BEGIN
-    NEW.updated_at = NOW();
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
--- Secure Admin Verification Function (Prevents RLS infinite recursion)
--- SECURITY DEFINER allows it to read admin_profiles safely without triggering RLS loops
-CREATE OR REPLACE FUNCTION public.is_admin()
-RETURNS BOOLEAN
-LANGUAGE sql
-SECURITY DEFINER
-SET search_path = public, auth
-STABLE
-AS $$
-    SELECT EXISTS (
-        SELECT 1
-        FROM public.admin_profiles
-        WHERE id = auth.uid()
-          AND role IN ('admin', 'super_admin')
-          AND is_active = TRUE
-    );
-$$;
-
--- Secure Super Admin Verification Function
-CREATE OR REPLACE FUNCTION public.is_super_admin()
-RETURNS BOOLEAN
-LANGUAGE sql
-SECURITY DEFINER
-SET search_path = public, auth
-STABLE
-AS $$
-    SELECT EXISTS (
-        SELECT 1
-        FROM public.admin_profiles
-        WHERE id = auth.uid()
-          AND role = 'super_admin'
-          AND is_active = TRUE
-    );
-$$;
-
--- ==============================================================================
--- 2. TABLE DEFINITIONS
--- ==============================================================================
+-- Admin User Profiles (Explicit Administrator Authorization)
+CREATE TABLE IF NOT EXISTS public.admin_profiles (
+    id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+    email TEXT UNIQUE NOT NULL,
+    full_name TEXT,
+    role TEXT NOT NULL DEFAULT 'admin', -- 'super_admin', 'admin'
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
 
 -- Site Settings (Global configuration & SEO)
 CREATE TABLE IF NOT EXISTS public.site_settings (
@@ -220,7 +183,7 @@ CREATE TABLE IF NOT EXISTS public.why_us (
 -- Dynamic Homepage Sections Table (Order & Visibility)
 CREATE TABLE IF NOT EXISTS public.homepage_sections (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    section_key TEXT UNIQUE NOT NULL, -- 'hero', 'about', 'services', 'video', 'projects', 'why_us', 'estimator', 'cta', 'contact'
+    section_key TEXT UNIQUE NOT NULL,
     title TEXT NOT NULL,
     is_enabled BOOLEAN DEFAULT TRUE,
     display_order INT DEFAULT 1,
@@ -247,7 +210,7 @@ CREATE TABLE IF NOT EXISTS public.quote_enquiries (
     email TEXT,
     service_required TEXT NOT NULL,
     message TEXT,
-    status TEXT NOT NULL DEFAULT 'NEW', -- 'NEW', 'IN_REVIEW', 'CONTACTED', 'COMPLETED', 'ARCHIVED'
+    status TEXT NOT NULL DEFAULT 'NEW',
     notes TEXT DEFAULT '',
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
@@ -257,7 +220,7 @@ CREATE TABLE IF NOT EXISTS public.quote_enquiries (
 CREATE TABLE IF NOT EXISTS public.media (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     file_name TEXT NOT NULL,
-    file_type TEXT NOT NULL, -- 'image' | 'video'
+    file_type TEXT NOT NULL,
     cloudinary_public_id TEXT,
     secure_url TEXT NOT NULL,
     format TEXT,
@@ -269,31 +232,68 @@ CREATE TABLE IF NOT EXISTS public.media (
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- Admin User Profiles (Explicit Authorization)
-CREATE TABLE IF NOT EXISTS public.admin_profiles (
-    id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
-    email TEXT UNIQUE NOT NULL,
-    full_name TEXT,
-    role TEXT NOT NULL DEFAULT 'admin', -- 'super_admin', 'admin'
-    is_active BOOLEAN NOT NULL DEFAULT TRUE,
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    updated_at TIMESTAMPTZ DEFAULT NOW()
-);
-
 -- Audit Logs Table (Full Traceability of CMS Actions)
 CREATE TABLE IF NOT EXISTS public.audit_logs (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     admin_id UUID REFERENCES auth.users(id) ON DELETE SET NULL,
     admin_email TEXT NOT NULL,
-    action TEXT NOT NULL, -- 'CREATE', 'UPDATE', 'DELETE', 'REORDER', 'RESTORE_DEFAULT'
-    entity TEXT NOT NULL, -- 'PROJECT', 'SERVICE', 'HERO', 'ABOUT', 'VIDEO', 'MEDIA', 'SETTINGS'
+    action TEXT NOT NULL,
+    entity TEXT NOT NULL,
     entity_id TEXT,
     details JSONB DEFAULT '{}'::jsonb,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
 -- ==============================================================================
--- 3. INDEXES FOR HIGH-PERFORMANCE QUERIES
+-- 2. HELPER FUNCTIONS & TRIGGERS
+-- ==============================================================================
+
+-- Automatic timestamp updater trigger function
+CREATE OR REPLACE FUNCTION public.update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = NOW();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Secure Admin Verification Function (Prevents RLS infinite recursion)
+-- SECURITY DEFINER allows it to read admin_profiles safely without triggering RLS loops
+CREATE OR REPLACE FUNCTION public.is_admin()
+RETURNS BOOLEAN
+LANGUAGE sql
+SECURITY DEFINER
+SET search_path = public, auth
+STABLE
+AS $$
+    SELECT EXISTS (
+        SELECT 1
+        FROM public.admin_profiles
+        WHERE id = auth.uid()
+          AND role IN ('admin', 'super_admin')
+          AND is_active = TRUE
+    );
+$$;
+
+-- Secure Super Admin Verification Function
+CREATE OR REPLACE FUNCTION public.is_super_admin()
+RETURNS BOOLEAN
+LANGUAGE sql
+SECURITY DEFINER
+SET search_path = public, auth
+STABLE
+AS $$
+    SELECT EXISTS (
+        SELECT 1
+        FROM public.admin_profiles
+        WHERE id = auth.uid()
+          AND role = 'super_admin'
+          AND is_active = TRUE
+    );
+$$;
+
+-- ==============================================================================
+-- 3. INDEXES FOR PERFORMANCE
 -- ==============================================================================
 
 CREATE INDEX IF NOT EXISTS idx_services_published_order ON public.services(is_published, display_order);
@@ -361,9 +361,7 @@ ALTER TABLE public.media ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.admin_profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.audit_logs ENABLE ROW LEVEL SECURITY;
 
--- ------------------------------------------------------------------------------
--- A. PUBLIC READ POLICIES (Public visitors & search engines)
--- ------------------------------------------------------------------------------
+-- A. Public Read Policies
 DROP POLICY IF EXISTS "Public can view site settings" ON public.site_settings;
 CREATE POLICY "Public can view site settings" ON public.site_settings FOR SELECT USING (true);
 
@@ -397,13 +395,10 @@ CREATE POLICY "Public can view active estimator services" ON public.estimator_se
 DROP POLICY IF EXISTS "Public can view media" ON public.media;
 CREATE POLICY "Public can view media" ON public.media FOR SELECT USING (true);
 
--- Public visitors can SUBMIT quote enquiries (INSERT ONLY — NO SELECT/UPDATE/DELETE)
 DROP POLICY IF EXISTS "Public can submit quote enquiry" ON public.quote_enquiries;
 CREATE POLICY "Public can submit quote enquiry" ON public.quote_enquiries FOR INSERT WITH CHECK (true);
 
--- ------------------------------------------------------------------------------
--- B. STRICT ADMIN POLICIES (Requires verified public.is_admin())
--- ------------------------------------------------------------------------------
+-- B. Strict Admin Policies (Checked via public.is_admin())
 DROP POLICY IF EXISTS "Admin full access site_settings" ON public.site_settings;
 CREATE POLICY "Admin full access site_settings" ON public.site_settings FOR ALL TO authenticated USING (public.is_admin()) WITH CHECK (public.is_admin());
 
@@ -446,9 +441,7 @@ CREATE POLICY "Admin read audit_logs" ON public.audit_logs FOR SELECT TO authent
 DROP POLICY IF EXISTS "Admin insert audit_logs" ON public.audit_logs;
 CREATE POLICY "Admin insert audit_logs" ON public.audit_logs FOR INSERT TO authenticated WITH CHECK (public.is_admin());
 
--- ------------------------------------------------------------------------------
--- C. ADMIN PROFILES SECURITY (Super Admin Access Gate)
--- ------------------------------------------------------------------------------
+-- C. Super Admin Management Policies
 DROP POLICY IF EXISTS "Admin can view own profile" ON public.admin_profiles;
 CREATE POLICY "Admin can view own profile" ON public.admin_profiles FOR SELECT TO authenticated USING (auth.uid() = id);
 
@@ -459,10 +452,9 @@ DROP POLICY IF EXISTS "Super admin manage admin profiles" ON public.admin_profil
 CREATE POLICY "Super admin manage admin profiles" ON public.admin_profiles FOR ALL TO authenticated USING (public.is_super_admin()) WITH CHECK (public.is_super_admin());
 
 -- ==============================================================================
--- 6. INITIAL SEED DATA
+-- 6. INITIAL SEED DATA (Pre-populating real Abuja content)
 -- ==============================================================================
 
--- Site Settings Seed
 INSERT INTO public.site_settings (company_name, company_tagline, slogan, phone_number, whatsapp_number, default_whatsapp_message, email_address, office_address, logo_url, favicon_url)
 VALUES (
     'EMMYLINK',
@@ -477,7 +469,6 @@ VALUES (
     '/images/favicon.png'
 ) ON CONFLICT DO NOTHING;
 
--- Hero Section Seed
 INSERT INTO public.hero (badge_text, headline_line1, headline_line2, subtext, bg_media_type, bg_video_url, bg_poster_url)
 VALUES (
     'ABUJA, NIGERIA',
@@ -489,7 +480,6 @@ VALUES (
     '/images/video-poster.jpg'
 ) ON CONFLICT DO NOTHING;
 
--- About Section Seed
 INSERT INTO public.about (tag_label, headline_part1, headline_part2, lead_paragraph, secondary_paragraph, main_image_url)
 VALUES (
     'ABOUT EMMYLINK',
@@ -500,7 +490,6 @@ VALUES (
     '/images/real-luxury-living-room.jpg'
 ) ON CONFLICT DO NOTHING;
 
--- Services Seed (6 Core Services)
 INSERT INTO public.services (service_number, title, service_key, short_description, full_description, icon_name, display_order)
 VALUES
 ('01', 'Electrical Installation', 'electrical', 'Residential and commercial 3-phase wiring, precision distribution board (DB) building, surge protective device (SPD) installation, earthing systems, and balanced load management.', 'Residential and commercial conduit piping, 3-phase load calculation, precision DB board assembly, DIN-rail surge protective devices (SPD), earthing systems, and load balancing across all circuits in Abuja.', 'zap', 1),
@@ -511,7 +500,6 @@ VALUES
 ('06', 'IoT & Automation', 'networking', 'Structured CAT6A cabling, server rack management, IP PBX intercom telecommunications, managed PoE switches, and whole-property Wi-Fi mesh systems.', 'Structured CAT6A cabling, server rack management, IP PBX intercom telecommunications, managed PoE switches, and whole-property Wi-Fi mesh systems.', 'server', 6)
 ON CONFLICT (service_key) DO NOTHING;
 
--- Showcase Video Seed
 INSERT INTO public.showcase_video (section_tag, title, subtitle, video_url, poster_url)
 VALUES (
     'SEE OUR WORK IN ACTION',
@@ -521,7 +509,6 @@ VALUES (
     '/images/video-poster.jpg'
 ) ON CONFLICT DO NOTHING;
 
--- Projects Seed (All 15 portfolio items with real Abuja photos)
 INSERT INTO public.projects (title, categories, category_label, badge_label, caption, what_we_did, project_type, result, main_image_url, grid_span, is_featured, featured_order, display_order)
 VALUES
 (
@@ -751,7 +738,6 @@ VALUES
 )
 ON CONFLICT DO NOTHING;
 
--- Why Choose Us Seed
 INSERT INTO public.why_us (title, description, icon_name, display_order)
 VALUES
 ('Professional Installation', 'Clean panel layouts, properly ferruled wire terminations, neat trunking, and structured conduit pathways built to last.', 'wrench', 1),
@@ -762,7 +748,6 @@ VALUES
 ('Abuja Based', 'Fast on-site engineering team available across Maitama, Guzape, Asokoro, Jabi, Katampe, and the greater FCT.', 'map-pin', 6)
 ON CONFLICT DO NOTHING;
 
--- Homepage Dynamic Sections Seed
 INSERT INTO public.homepage_sections (section_key, title, is_enabled, display_order)
 VALUES
 ('hero', 'Hero Banner & Video', TRUE, 1),
@@ -777,7 +762,6 @@ VALUES
 ON CONFLICT (section_key) DO UPDATE
 SET display_order = EXCLUDED.display_order;
 
--- Estimator Services Seed
 INSERT INTO public.estimator_services (service_key, name, base_price_ngn, display_order)
 VALUES
 ('electrical', '3-Phase Electrical & DB Board', 250000, 1),
